@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+  <div class="page-header" id="banner">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1></h1>
+        <p class="lead">Below is a collection of projects that I have either completed as part of my university coursework or have pursued while involved in various research groups.</p>
+        <!--<p>I am a very application oriented person in my research endeavors. I like to see the usefulness of research results quickly applied into business or application needs</p>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <h2>Research Involvement</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="well">
+        <p>The University of Tokyo {Feb '13 - Sep '14}</p>
+        <p>Advisor: <a href="http://ytlab.jp/index.html">Yoshinori Tamada</a></p>
+        <p>Skills used: C, OpenMP on many-core architecture (Xeon Phi)</p>
+        <p>Conducted research on how to make the estimation of large scale Bayesian networks parallely scalable. Most Bayesian network applications, like decision networks, rely only on the estimation of a few tens of variables. Some applications, frequently in computational biology, require estimation for networks with thousands of variables. I made an effort to study how to tradeoff accuracy while speeding up modern computational methods enough to allow estimation of networks for applications with large scale needs.</p>
+        <p>Related links: <a href="http://sign.hgc.jp/signbn/index.html">Tamada's Gene Network Estimation Project</a></p>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="well">
+        <p>The University of Tokyo {Apr '12 - Feb '13}</p>
+        <p>Advisor: <a href="http://olab.is.s.u-tokyo.ac.jp/~reiji/">Reiji Suda</a></p>
+        <p>Skills used: C++, Convex Optimization Packages (Semidefinite Programming)</p>
+        <p><a href="{{'/media/proposal.pdf'}}">Original Proposal</a></p>
+        <p>I conducted brief research into increasing the computing scale of multiple kernel learning in Support Vector Machine (SVM) implementations. I became interested in SVM learning after studying character recognition applications in some independent study projects and wanted to continue formal study in a graduate course. 
+        </p>
+        <p>Related links (not my works): <a href="http://sdpa.sourceforge.net/download.html">Parallel Semidefinite Programming Solver</a>, <a href="http://shogun-toolbox.org/doc/en/current/methods.html">SHOGUN toolbox</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="well">
+        <p>Purdue University {Aug '10 - July '11}</p>
+        <p>Advisor: <a href="http://www.math.purdue.edu/%7Ezfeng">Zhilan Feng</a></p>
+        <p><a href="http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=0920828&amp;version=noscript">Project Description</a> (NSF Link)</p>
+        <p>Feng, Zhilan, et al. "Plant toxins and trophic cascades alter fire regime and succession on a boreal forest landscape." Ecological Modelling 244 (2012): 79-92.</p>
+        <p>Skills used: C/C++, R, Octave, Mathematica</p>
+        <p>This research focuses on the use of mathematical models to study questions concerning Alaska's Boreal ecosystem with the goal of addressing issues of interest to resource management. My role in this project involved integrating a predation model developed by Professor Feng into the landscape modeling software <a href="http://www.snap.uaf.edu/resource_page.php?resourceid=11">ALFRESCO</a> and matching simulation output to empirical research findings. This was a multidisciplinary joint project between Purdue University and the University of Alaska Fairbanks involving a team of mathematicians, ecologists, statisticians and computer scientists.<!--I began working with Professor Feng in the Fall of 2010 as part of an undergradute research program through Purdue University's <a href="http://www.purdue.edu/dp/">Discovery Park</a>.--></p>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="well">
+        <p>NCKU/ Delta Electronics (Tainan, Taiwan) {May '10 - Aug '10}</p>
+        <p>Advisor: <a href="http://www.ee.ncku.edu.tw/nckueechinese/professor/T204-pcchung/T8008039e.htm">Pau-Choo Chung</a></p>
+        <p>Skills used: Embedded C (ARM board), Visual C++ (data visualization on desktop PC)</p>
+        <p>Professor Chung's lab was working with engineers at Delta
+        Electronics to develop a handheld medical device utilizing photon
+        scattering in skin tissue as a tool for detecting tumors. I worked on an algorithm to
+        determine tissue parameters (volume fraction of water, fat, etc.) based
+        on reflection of light in multilayer tissue at specific wavelengths.
+        This was done through the application of the Nelder-Mead simplex
+        algorithm (implemented in C) and least squares fitting to fit the skin
+        parameters to spectral data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="well">
+        <p>Tohoku University (Sendai, Japan) {Sep '08 - Aug '09}</p>
+        <p>Advisor: <a href="http://www.shino.ecei.tohoku.ac.jp/%7Eayumi/indexE.html">Ayumi Shinohara</a></p>
+        <p>Skills used: C++, OpenCV (computer vision library for C++)</p>
+        <p>I
+        independently studied data mining methods and participated in weekly
+        laboratory meetings. During my second semester, I began work on a face
+        detection algorithm using the C language openCV library and haar classifiers (<a href="{{'/media/sp_09.pdf'}}">Abstract</a>).</li>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <h2>Course Projects</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="well">
+        <p>FPGA Implementation of Dualcore Processor for MIPS ISA Subset</p>
+        <p>Skills used: VHDL, FPGA (Altera Cyclone), ModelSim</p>
+        <p><a href="{{'/media/FinalReport.pdf'}}">Design Report</a></p>
+        <p><a href="https://github.com/mbarga/archive-cpu">GitHub Repo</a></p>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="well">
+        <p>Wireless Networked Universal Remote</p>
+        <p>Skills used: Embedded C and Assembly (ARM microcontroller), circuit board design (Cadence OrCAD) seen through to successful printing</p>
+        <p><a href="{{'/media/final_report.pdf'}}">Design Report</a></p>
+        <p><a href="https://engineering.purdue.edu/ece477/Webs/F10-Grp03/index.html">Archived Project Website</a></p>
+        <p><a href="https://github.com/mbarga/archive-omnimote">GitHub Repo</a></p>
+        <iframe width="480" height="290" src="//www.youtube.com/embed/7-y3ay_duqM" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="well">
+        <p>Compiler for 'Micro' Toy Language (implemented in Java with ANTLR Parser Generator)</p>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="well">
+        <p>ASIC Design for USB to DVI Converter</p>
+        <p>Skills used: VHDL, ModelSim</p>
+        </p><a href="{{'/media/USBtoDVI.pdf'}}">Design Report</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

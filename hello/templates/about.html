@@ -1,26 +1,54 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+
 {% block content %}
     <!-- +++++ Welcome Section +++++ -->
     <div id="ww">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 centered">
-                    <img src="{% static "static/img/user.png" %}" alt="Stanley">
-                    <h1>Welcome to my website!</h1>
+                
+                    <img src="{% static 'img\user.png' %}" alt="Joun">
+                    <h1>Welcome to my website!<hi>
           <h2>Hi, I am {{person.userName}}!</h2>
           <p style="font-weight: normal !important;
 font-style: normal !important;
 ">Hello everybody. I'm {{person.fullName}}<br>
            {{person.personalDescription}}.</p>
-          </div>
-          </div>
-          </div>
-          </div>
-
           
-        {% endblock %}  
-       
+        
+        <!-- +++++ Information Section +++++ -->
+  
+  <div class="container pt">
+    
+    
+    <div class="row mt">
+    <div class="col-lg-6">
+        <img src="http://lorempixel.com/300/200/">
+      </div><!-- /colg-lg-6 -->
+               
+      <div class="col-lg-6" style = "font-weight: normal !important;font-style: italic !important;
+font-size: 16px !important;
+">
+        <h2>SKILLS</h2>
+        <br>
+        {% for skill in skills %}
+        {{skill.skillName}}
+        <div class="progress">
+          <div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.skillAwarenessPercent}}%;">
+            <span class="sr-only">{{skill.skillAwarenessPercent}}% Complete</span>
+          </div>
+        </div>
+         {% endfor %}
+        
+      </div><!-- /col-lg-6 -->
+        
+    </div><!-- /row -->
+  </div><!-- /container -->
+  
+  </div><!-- /ww -->
+  {% endblock %}
+  
   <!-- +++++ Projects Section +++++ -->
   
  <!--  <div class="container pt">

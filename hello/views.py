@@ -1,20 +1,50 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.models import User
+from .models import *
 
-from .models import Greeting
+me = User.objects.get(username='joun')
 
-# Create your views here.
+if Person.objects.filter(userName=me):
+    person = Person.objects.filter(userName=me)[0]
+else:
+    person = {}    
 def index(request):
-    # return HttpResponse('Hello from Python!')
-    return render(request, 'index.html')
+    
+    return render(request, 'index.html', {'person': person})
+
+def home(request):
+    
+    return render(request, 'home.html', {'person': person})
+
+def portfolio(request):
+    return render(request, 'portfolio.html', {'person': person})
 
 
-def db(request):
+def contact(request):
+    return render(request, 'contact.html', {'person': person})
 
-    greeting = Greeting()
-    greeting.save()
 
-    greetings = Greeting.objects.all()
+def resume(request):
+    return render(request, 'resume.html', {'person': person})
 
-    return render(request, 'db.html', {'greetings': greetings})
+def about(request):
+    if Person.objects.filter(userName=me):
+        skills = Skills.objects.filter(user=me)
+    else:
+        skills = []
+        
+    return render(request, 'about.html', {'person': person,'skills':skills})
 
+# def projects(request):
+#     return render(request, 'projects.html', {'person': person})
+
+
+def error404(request):
+    return render(request, '404.html', {'person': person})
+
+
+def error500(request):
+    return render(request, '500.html', {'person': person})
+
+def blog(request):
+    return render(request,'blog.html')
