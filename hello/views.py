@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from .models import *
 
-
 me = {}
 person={}
 # if User.objects.get(username='joun'):
