@@ -9,7 +9,8 @@ person={}
 # if Person.objects.filter(userName=me):
 #     person = Person.objects.filter(userName=me)[0]
 # else:
-#     person = {}    
+#     person = {}  
+      
 def index(request):
     
     return render(request, 'index.html', {'person': person})
