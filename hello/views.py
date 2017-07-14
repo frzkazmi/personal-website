@@ -8,9 +8,7 @@ if User.objects.get(username='joun'):
     me = User.objects.get(username='joun')
 if Person.objects.filter(userName=me):
     person = Person.objects.filter(userName=me)[0]
-else:
-    person = {}  
-      
+print person
 def index(request):
     
     return render(request, 'index.html', {'person': person})
@@ -34,6 +32,7 @@ def about(request):
     skills={}
     if Person.objects.filter(userName=me):
         skills = Skills.objects.filter(user=me)
+    print skills    
             
     return render(request, 'about.html', {'person': person,'skills':skills})
 
