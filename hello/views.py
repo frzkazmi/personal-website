@@ -31,7 +31,7 @@ def resume(request):
 def about(request):
     skills={}
     if Person.objects.filter(userName=me):
-        skills = Skills.objects.filter(user=me)
+        skills = Skills.objects.filter(userName=me)
     print skills    
             
     return render(request, 'about.html', {'person': person,'skills':skills})
