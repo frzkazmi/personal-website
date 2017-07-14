@@ -4,12 +4,12 @@ from .models import *
 
 me = {}
 person={}
-# if User.objects.get(username='joun'):
-#     me = User.objects.get(username='joun')
-# if Person.objects.filter(userName=me):
-#     person = Person.objects.filter(userName=me)[0]
-# else:
-#     person = {}  
+if User.objects.get(username='joun'):
+    me = User.objects.get(username='joun')
+if Person.objects.filter(userName=me):
+    person = Person.objects.filter(userName=me)[0]
+else:
+    person = {}  
       
 def index(request):
     
@@ -32,11 +32,9 @@ def resume(request):
 
 def about(request):
     skills={}
-    # if Person.objects.filter(userName=me):
-    #     skills = Skills.objects.filter(user=me)
-    # else:
-    #     skills = []
-        
+    if Person.objects.filter(userName=me):
+        skills = Skills.objects.filter(user=me)
+            
     return render(request, 'about.html', {'person': person,'skills':skills})
 
 # def projects(request):
