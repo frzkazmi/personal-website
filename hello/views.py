@@ -3,12 +3,14 @@ from django.contrib.auth.models import User
 from .models import *
 
 me = {}
-person={}
+person = {}
 if User.objects.get(username='joun'):
     me = User.objects.get(username='joun')
+print (Person.objects.filter(userName=me))
+print (Person.objects.all())
 if Person.objects.filter(userName=me):
     person = Person.objects.filter(userName=me)[0]
-print person
+
 def index(request):
     
     return render(request, 'index.html', {'person': person})
@@ -30,9 +32,8 @@ def resume(request):
 
 def about(request):
     skills={}
-    if me:
-        skills = Skills.objects.filter(user=me)
-    print skills    
+    if Person.objects.all()[0]:
+        skills = Skills.objects.filter(user=Person.objects.all()[0])    
             
     return render(request, 'about.html', {'person': person,'skills':skills})
 
