@@ -30,7 +30,7 @@ def resume(request):
 
 def about(request):
     skills={}
-    if Person.objects.filter(user=me):
+    if me:
         skills = Skills.objects.filter(user=me)
     print skills    
             
