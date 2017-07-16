@@ -1,8 +1,6 @@
-# python-getting-started
+# personal-website-django
 
 My personal website app in using django, which is deployed to Heroku.
-
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 
 ## Running Locally
 
