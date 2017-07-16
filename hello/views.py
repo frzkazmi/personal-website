@@ -6,8 +6,8 @@ me = {}
 person = {}
 if User.objects.get(username='joun'):
     me = User.objects.get(username='joun')
-print (Person.objects.filter(userName=me))
-print (Person.objects.all())
+#print (Person.objects.filter(userName=me))
+#print (Person.objects.all())
 if Person.objects.filter(userName=me):
     person = Person.objects.filter(userName=me)[0]
 

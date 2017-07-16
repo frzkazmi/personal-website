@@ -3,3 +3,5 @@ venv
 staticfiles
 .env
 db.sqlite3
+python3venv
+py2venv
