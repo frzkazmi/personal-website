@@ -1,15 +1,11 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-
-{% block content %}
-    <!-- +++++ Welcome Section +++++ -->
-    <div id="ww">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 centered">
-                
-                    <img src="{% static 'img\user.png' %}" alt="Joun">
-                    <h1>Welcome to my website!<hi>
+{% extends "base.html" %} {% load staticfiles %} {% block content %}
+<!-- +++++ Welcome Section +++++ -->
+<div id="ww">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 centered">
+                <img src="{% static 'img\user.png' %}" alt="Joun">
+                <h1>Welcome to my website!<hi>
           <h2>Hi, I am {{person.userName}}!</h2>
           <p style="font-weight: normal !important;
 font-style: normal !important;
@@ -43,9 +39,10 @@ font-size: 16px !important;
       <div class="col-lg-6">
      <img src="{% static 'img\myimg.jpg' %}">
           </div><!-- /col-lg-6 ends here -->
-         <div class="social-networks"> 
+         <div class="social-networks" style="margin-top: 360px !important;
+"> 
         <a class="btn btn-social-icon btn-facebook" href="{{person.fbUrl}}"><span class="fa fa-facebook"></span></a>
-        <a class="btn btn-social-icon btn-bitbucket" href="{{person.bitbucketUrl}}"><span class="fa fa-bitbucket"></span></a>
+        
         <a class="btn btn-social-icon btn-github" href="{{person.githubUrl}}"><span class="fa fa-github"></span></a>
         <a class="btn btn-social-icon btn-google" href="mailto:{{person.emailAddress}}"><span class="fa fa-google"></span></a>
         <a class="btn btn-social-icon btn-linkedin" href="{{person.linkedinUrl}}"><span class="fa fa-linkedin"></span></a>
