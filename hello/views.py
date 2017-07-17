@@ -17,7 +17,7 @@ def index(request):
 
 def home(request):
     
-    return render(request, 'home.html', {'person': person})
+    return render(request, 'index.html', {'person': person})
 
 def portfolio(request):
     return render(request, 'portfolio.html', {'person': person})
