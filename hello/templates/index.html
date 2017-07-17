@@ -1,30 +1,27 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-{% block content %}
-    <!-- +++++ Welcome Section +++++ -->
-    <div id="ww">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 centered">
-                    <img src="{% static 'img\user.png' %}" alt="Stanley">
-                    <h1>Welcome to my website!</h1>
-          <h2>Hi, I am {{person.userName}}!</h2>
-          <p style="font-weight: normal !important;
+{% extends "base.html" %} {% load staticfiles %} {% block content %}
+<!-- +++++ Welcome Section +++++ -->
+<div id="ww">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 centered">
+                <img src="{% static 'img\user.png' %}" alt="Stanley">
+                <h1>Welcome to my website!</h1>
+                <h2>Hi, I am {{person.userName}}!</h2>
+                <p style="font-weight: normal !important;
 font-style: normal !important;
-">Hello everybody. I'm {{person.fullName}} <br>
-        </p>
-        <div class="bio">"{{person.userbio}}"</div>
-          </div>
-          </div>
-          </div>
-          </div>
-
-          
-        {% endblock %}  
-       
-  <!-- +++++ Projects Section +++++ -->
-  
- <!--  <div class="container pt">
+">Hello everybody. I'm {{person.fullName}}
+                    <br>
+                </p>
+                <div class="bio" style="font-family: Consolas !important;
+font-style: italic !important;
+">"{{person.userbio}}"</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- +++++ Projects Section +++++ -->
+<!--  <div class="container pt">
    <div class="row mt centered"> 
      <div class="col-lg-4">
        <a class="zoom green" href="work01.html"><img class="img-responsive" src="static/img/port01.jpg" alt="" /></a>
@@ -54,14 +51,10 @@ font-style: normal !important;
      </div>
    </div>/row
  </div>/container -->
-  
-  
-  
-  
-
-    <!-- Bootstrap core JavaScript
+<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{% static "static/js/bootstrap.min.js" %}" ></script>
-  </body>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static " static/js/bootstrap.min.js " %}"></script>
+</body>
+
 </html>
