@@ -11,7 +11,15 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 import os
 import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
 
+
+def _require_env(name):
+    """Raise an error if the environment variable isn't defined"""
+    value = os.getenv(name)
+    if value is None:
+        raise ImproperlyConfigured('Required environment variable "{}" is not set.'.format(name))
+    return value
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -121,6 +129,17 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+#Email settings send_mail('test django email', 'Here is the message.','kazmifaraz153@gmail.com',['frzkazmi@gmail.com'],fail_silently=False,)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#print ('emailID is '+EMAIL_HOST_USER)
+#print ('emailpassword is '+EMAIL_HOST_PASSWORD)
 
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)

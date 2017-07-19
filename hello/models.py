@@ -8,25 +8,36 @@ from django.utils.translation import gettext as _
 
 
 class ContactForm(forms.Form):
+    senderName = forms.CharField(max_length=100)
+    senderEmail = forms.EmailField()
     subject = forms.CharField(max_length=100)
-    message = forms.CharField()
-    sender = forms.EmailField()
-    cc_myself = forms.BooleanField(required=False)
+    message = forms.CharField(required=False, widget=forms.Textarea)
+      
+    #cc_myself = forms.BooleanField(required=False)
+    
+    def __init__(self, *args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+        self.fields['senderName'].label = "Your name:"
+        self.fields['senderEmail'].label = "Your email:"
+        self.fields['subject'].label = "Subject"
+        self.fields['message'].label = "Enter your message here"
+        
+    
 
 class Person(models.Model):
 
     userName = models.ForeignKey('auth.User')
     fullName = models.CharField(max_length=200,default='')
-    userbio = models.TextField(max_length=200,default='')
-    locality = models.TextField(max_length=200,default='')
+    userbio = models.CharField(max_length=200,default='')
+    locality = models.CharField(max_length=200,default='')
     userLocation = models.CharField(max_length=200,default='')
     title = models.CharField(max_length=200,default='')
     linkedinUrl = models.CharField(max_length=200,default='')
     githubUrl = models.CharField(max_length=200,default='')
-    emailAddress = models.CharField(max_length=200,default='')
+    emailAddress = models.EmailField(max_length=200,default='')
     personalDescription = models.TextField(default='')
     careerObjective = models.TextField(default='')
-    fbUrl = models.TextField(default='')
+    fbUrl = models.CharField(max_length=200,default='')
     skypeId = models.CharField(max_length=200,default='')
     mobileNumber = models.CharField(max_length=200,default='')
 
@@ -57,15 +68,15 @@ class PersonalProject(models.Model):
     def __str__(self):
         return self.projectName
 
-class CompanyProject(models.Model):
-    user = models.ForeignKey('Person')
+class CompanyProject(PersonalProject):
+    #user = models.ForeignKey('Person')
     company = models.ForeignKey('Company',default='')
-    projectName = models.CharField(max_length=200,default='')
-    TechnologiesUsed = models.TextField(default='')
-    ProjectDescription = models.TextField(default='')
+    # projectName = models.CharField(max_length=200,default='')
+    # TechnologiesUsed = models.TextField(default='')
+    # ProjectDescription = models.TextField(default='')
 
     def __str__(self):
-        return self.projectName        
+        return self.company        
 
 
 class Education(models.Model):
