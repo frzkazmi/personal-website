@@ -33,7 +33,7 @@ def contact(request):
     form_class = ContactForm
 
     if request.method == 'GET':
-        
+
         #print ("contact GET")
         form = ContactForm()
     else:
@@ -42,8 +42,10 @@ def contact(request):
         form = ContactForm(request.POST)
         #print (form.errors)
         if not form.is_valid():
+            pass
             #print ('invalid form')
         if form.is_valid():
+            
             #print ("valid form")
             subject = form.cleaned_data['subject']
             from_person = form.cleaned_data['senderName']
