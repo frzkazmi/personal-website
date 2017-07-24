@@ -3,10 +3,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .models import *
+from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.template import Context
 from django.template.loader import get_template, render_to_string
-import os
+import os, requests
+from gettingstarted import settings
 
 me = {}
 person = {}
@@ -31,6 +33,7 @@ def portfolio(request):
 
 def contact(request):
     form_class = ContactForm
+    validFlag = ""
 
     if request.method == 'GET':
 
@@ -45,7 +48,24 @@ def contact(request):
             pass
             #print ('invalid form')
         if form.is_valid():
-            
+            ''' Begin reCAPTCHA validation '''
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            data = {
+                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            print (data)
+            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+            result = r.json()
+            print (result)
+            ''' End reCAPTCHA validation '''
+
+            if result['success']:
+                #form.save()
+                messages.success(request, 'Form submitted with success!')
+            else:
+                messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+
             #print ("valid form")
             subject = form.cleaned_data['subject']
             from_person = form.cleaned_data['senderName']
@@ -65,6 +85,7 @@ def contact(request):
             msgtoVisitor.attach_alternative(html_content_for_Visitor, "text/html")
             msgtoUser.send()
             msgtoVisitor.send()
+            validFlag = "true"
             # try:
             #     send_mail(subject, message, from_email, ['kazmifaraz153@gmail.com'])
             # except BadHeaderError:
@@ -72,16 +93,19 @@ def contact(request):
             # return redirect('contact')
 
 
-    return render(request, 'contact.html', {'person': person,'form':form_class})
+    return render(request, 'contact.html', {'person': person,'form':form_class,'validFlag':validFlag})
 
 
 def resume(request):
-    return render(request, 'resume.html', {'person': person})
+    techskills = TechnicalSkill.objects.filter(user=person)[0]
+    company = Company.objects.filter(user=person)
+    education = Education.objects.filter(user=person)
+    return render(request, 'resume.html', {'person': person,'techskills':techskills,'companies':company,'education':education})
 
 def about(request):
     skills={}
     if Person.objects.all()[0]:
-        skills = Skills.objects.filter(user=Person.objects.all()[0])    
+        skills = Skills.objects.filter(user=person)    
             
     return render(request, 'about.html', {'person': person,'skills':skills})
 
@@ -98,3 +122,6 @@ def error500(request):
 
 def blog(request):
     return render(request,'blog.html')
+
+def blogPage(request,num="1"):
+    return render(request,'blogPage.html')

@@ -2,11 +2,17 @@ from django.db import models
 from django import forms
 from django.db import models
 import datetime
+
 from django.utils import timezone
+from uuid import uuid4
 # from datetime import date
 from django.utils.translation import gettext as _
+#from dbarray import IntegerArrayField
+from django.contrib.auth.models import User
+from django.contrib.postgres.fields import ArrayField
 
 
+## FORMS MODELS
 class ContactForm(forms.Form):
     senderName = forms.CharField(max_length=100)
     senderEmail = forms.EmailField()
@@ -21,8 +27,8 @@ class ContactForm(forms.Form):
         self.fields['senderEmail'].label = "Your email:"
         self.fields['subject'].label = "Subject"
         self.fields['message'].label = "Enter your message here"
-        
-    
+   
+  
 
 class Person(models.Model):
 
@@ -38,6 +44,7 @@ class Person(models.Model):
     personalDescription = models.TextField(default='')
     careerObjective = models.TextField(default='')
     fbUrl = models.CharField(max_length=200,default='')
+    #mywebsite = models.CharField(max_length=200,default='')
     skypeId = models.CharField(max_length=200,default='')
     mobileNumber = models.CharField(max_length=200,default='')
 
@@ -53,6 +60,11 @@ class Company(models.Model):
     companyLocation = models.CharField(max_length=200,default='')
     joiningDate = models.DateField(_("Date"), default=datetime.date.today)
     leavingDate = models.DateField(_("Date"))
+    workDescription = models.TextField(default='')
+    projectRoles = ArrayField(models.CharField(max_length=200,default="{}", null=False, blank=False),default="{}")
+    todayDate = datetime.date.today()
+    if todayDate == leavingDate:
+        leavingDate = "Current"
 
     def __str__(self):
         return self.companyName
@@ -84,7 +96,8 @@ class Education(models.Model):
     courseName = models.CharField(max_length=200,default='')
     courseDuration = models.CharField(max_length=200,default='')
     coursePercentage = models.CharField(max_length=200,default='')
-    instituteName = models.TextField(default='')
+    instituteName = models.CharField(max_length=200,default='')
+    instituteLocation = models.CharField(max_length=200,default='')
     
     def __str__(self):
         return self.courseName
@@ -94,15 +107,15 @@ class Education(models.Model):
 
 class TechnicalSkill(models.Model):
     user = models.ForeignKey('Person')
-    commaSeperatedlanguages = models.TextField(default='')
-    commaSeperateddatabases = models.TextField(default='')
-    commaSeperatedBackEnds = models.TextField(default='')
-    commaSeperatedFrontEnds = models.TextField(default='')
-    commaSeperatedDevtools = models.TextField(default='')
-    commaSeperatedotherLibraries = models.TextField(default='')
-    commaSeperatedWebservices = models.TextField(default='')
+    languages = ArrayField(models.CharField(default="{}",max_length=200, null=False, blank=False),default="{}")
+    databases = ArrayField(models.CharField(default="{}",max_length=200, null=False, blank=False),default="{}")
+    BackEnds = ArrayField(models.CharField(default="{}",max_length=200, null=False, blank=False),default="{}")
+    FrontEnds = ArrayField(models.CharField(default="{}",max_length=200, null=False, blank=False),default="{}")
+    Devtools = ArrayField(models.CharField(default="{}",max_length=200, null=False, blank=False),default="{}")
+    otherLibraries = ArrayField(models.CharField(default="{}",max_length=200, null=False, blank=False),default="{}")
+    Webservices = ArrayField(models.CharField(default="{}",max_length=200, null=False, blank=False),default="{}")
 
-    def __str__(self):
+    def __unicode__(self):
         return self.commaSeperatedBackEnds
 
 class Skills(models.Model):
@@ -127,3 +140,50 @@ class Strength(models.Model):
 
     def __str__(self):
         return self.strength
+
+class Blog(models.Model):
+    content = models.TextField()
+    date = models.DateTimeField(default=datetime.datetime.now)
+    title = models.CharField(max_length=120)
+    slug = models.SlugField(unique=True)
+    published = models.BooleanField(default=False)
+    tags = models.ManyToManyField('Tag')
+    
+    class Meta:
+        ordering=['-date']
+    
+    # def get_absolute_url(self):
+    #     return reverse('core.views.blog', args=[self.slug])
+        
+    def __unicode__(self):
+        return self.title
+    
+class Tag(models.Model):
+    name = models.CharField(primary_key=True, max_length=50)
+    
+    def __unicode__(self):
+        return self.name
+    
+class Comment(models.Model):
+    content = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    path = ArrayField(models.IntegerField(default="{}", null=False, blank=False))
+   # path = IntegerArrayField(blank=True, editable=False) #Can't be null as using append to path for replies and can't append to a None path
+    depth = models.PositiveSmallIntegerField(default=0)
+    user = models.ForeignKey(User, null=True, blank=True)
+    name = models.CharField(max_length=50, null=True, blank=True)
+    website = models.URLField(null=True, blank=True)
+    blog = models.ForeignKey('Blog', blank=True, related_name='comments')
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='child')
+    spam = models.BooleanField(default=False)
+    deleted = models.BooleanField(default=False)
+    
+    def __unicode__(self):
+        return self.content
+    
+class Subscriber(models.Model):
+    email = models.EmailField()
+    uuid = models.CharField(max_length=50, default=uuid4)
+    
+    def __unicode__(self):
+        return self.email

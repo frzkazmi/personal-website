@@ -20,9 +20,8 @@
         <h3>Email</h3>
         <p>You can reach me out to at my mail <a href="mailto:{{person.emailAddress}}">:{{person.emailAddress}}</a></p>
         <h3>Voice</h3>
-        <div class="skype"><strong>Skype id: </strong> {{person.skypeId}}</div>
-        <div class="cphone" style="margin-top: 15px !important;
-"><strong>Phone: </strong> {{person.mobileNumber}}</div>
+        <div class="skype" style="font-size: 17px !important;"><strong>Skype id:  </strong> {{person.skypeId}}</div>
+        <div class="cphone" style="margin-top: 17px !important;"><strong>Phone:  </strong> {{person.mobileNumber}}</div>
         <h3>Other</h3>
         <a class="btn btn-social-icon btn-facebook" href="{{person.fbUrl}}"><span class="fa fa-facebook"></span></a>
         <a class="btn btn-social-icon btn-linkedin" href="{{person.linkedinUrl}}"><span class="fa fa-linkedin"></span></a>
@@ -39,7 +38,7 @@
     border-radius: 4px;">{{ error }}</li>
                 {% endfor %}
             </ul>
-            {% endif %}
+            {% else %} {% endif %}
             <!-- Display Form -->
             <form role="form" method="post" enctype="multipart/form-data">
                 <h3>OR YOU CAN FILL THIS FORM TO CONNECT WITH ME<h3>
@@ -72,11 +71,34 @@
            <br>
            </div>
            {% endfor %} 
-          <button type="submit" class="btn btn-success">SUBMIT</button>
+           <script src='https://www.google.com/recaptcha/api.js'></script>
+           <div class="g-recaptcha" data-sitekey="6Ld-OioUAAAAAPb3bIxdzM6rqVdDo7d34GRbQkVM"></div>
+          <button type="submit" id="formsubmit" class="btn btn-success" >SUBMIT</button>
+          
         </form>
+
+ {% if validFlag == "True" %}
+                                          <div class="alert alert-success" id="alert_template" style="display: block;margin-top:20px">
+                                              <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                              <strong>Success!</strong> Your message was sent successfully. Thanks for getting in touch! I'll respond to you as soon as possible.
+                                          </div>
+                                          {% endif %}           
+
+        <!-- <div class="wpcf7-response-output wpcf7-display-none wpcf7-mail-sent-ok" style="display: inline-block;margin-top:20px" role="alert">Your message was sent successfully. Thanks for getting in touch! We'll respond to you as soon as possible.</div> -->
         {% endif %}         
       </div>
     </div><!-- /row -->
   </div><!-- /container -->
   
+ 
+
+
+<script >
+  /*$('#formsubmit').on('click', function (e) {
+    console.log('inside popup script');
+    $('#alert_template').fadeIn('slow');
+  });*/
+
+        
+</script>
  {% endblock %}

@@ -23,6 +23,7 @@ urlpatterns = [          url(r'^$', views.index, name="index"),
                        url(r'^contact/$', views.contact, name="contact"),
                        url(r'^resume/$', views.resume, name="resume"),
                        url(r'^blog/$', views.blog, name="blog"),
+                       url(r'^blog/blog(?P<num>[0-9]+)/', views.blogPage, name="blogPage"),
                        url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
                            name='django.contrib.sitemaps.views.sitemap'),
                        url(r'^robots\.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),  # noqa
