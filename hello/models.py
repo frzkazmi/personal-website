@@ -32,7 +32,7 @@ class ContactForm(forms.Form):
 
 class Person(models.Model):
 
-    userName = models.ForeignKey('auth.User')
+    userName = models.ForeignKey('auth.User',null=True)
     fullName = models.CharField(max_length=200,default='')
     userbio = models.CharField(max_length=200,default='')
     locality = models.CharField(max_length=200,default='')
@@ -44,7 +44,7 @@ class Person(models.Model):
     personalDescription = models.TextField(default='')
     careerObjective = models.TextField(default='')
     fbUrl = models.CharField(max_length=200,default='')
-    #mywebsite = models.CharField(max_length=200,default='')
+    mywebsite = models.CharField(max_length=200,default='')
     skypeId = models.CharField(max_length=200,default='')
     mobileNumber = models.CharField(max_length=200,default='')
 
@@ -71,6 +71,7 @@ class Company(models.Model):
 
 
 class PersonalProject(models.Model):
+
     user = models.ForeignKey('Person')
     projectName = models.CharField(max_length=200,default='')
     TechnologiesUsed = models.TextField(default='')
@@ -144,10 +145,10 @@ class Strength(models.Model):
 class Blog(models.Model):
     content = models.TextField()
     date = models.DateTimeField(default=datetime.datetime.now)
-    title = models.CharField(max_length=120)
+    title = models.CharField(max_length=180)
     slug = models.SlugField(unique=True)
     published = models.BooleanField(default=False)
-    tags = models.ManyToManyField('Tag')
+    tags = models.ManyToManyField('TagsforBlog')
     
     class Meta:
         ordering=['-date']
@@ -155,14 +156,27 @@ class Blog(models.Model):
     # def get_absolute_url(self):
     #     return reverse('core.views.blog', args=[self.slug])
         
-    def __unicode__(self):
+    def __str__(self):
         return self.title
+
     
-class Tag(models.Model):
-    name = models.CharField(primary_key=True, max_length=50)
     
-    def __unicode__(self):
-        return self.name
+class TagsforBlog(models.Model):
+    
+
+    tagname = models.CharField(primary_key=True, max_length=50)
+    tagslug = models.CharField(max_length=120,null=True, blank=True)
+    
+    def __str__(self):
+        return self.tagname
+
+    @property
+    def get_total_posts(self):
+        return Post.objects.filter(tags__pk=self.pk).count()
+
+    class Meta:
+        verbose_name = 'Detail Tag'
+        verbose_name_plural = 'Tags'        
     
 class Comment(models.Model):
     content = models.TextField()

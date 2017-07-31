@@ -35,7 +35,7 @@ SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-GOOGLE_RECAPTCHA_SECRET_KEY = _require_env('GOOGLE_RECAPTCHA_SECRET_KEY')
+GOOGLE_RECAPTCHA_SECRET_KEY = "6Ld-OioUAAAAAHsYYs1Hz65HcOu9YlcqtK43nCCI"
 
 # Application definition
 
@@ -46,8 +46,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello'
+    'hello',
+    'django_seed'
 )
+
+FAKER_LOCALE = None     # settings.LANGUAGE_CODE is loaded
+FAKER_PROVIDERS = None  # faker.DEFAULT_PROVIDERS is loaded (all)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -95,7 +99,7 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'python_getting_started',
+        'NAME': 'personalsite',
         'USER': 'postgres',
         'PASSWORD': 'root',
         'HOST': 'localhost',
@@ -134,9 +138,10 @@ USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 EMAIL_HOST = 'smtp.gmail.com'
-
-EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'frzkazmi@gmail.com'
+EMAIL_HOST_PASSWORD = 'kakadeo01'
+#EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER')
+#EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
