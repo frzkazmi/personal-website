@@ -14,7 +14,7 @@ from gettingstarted import settings
 from django_seed import Seed
 
 
-#seeder = Seed.seeder()
+####seeder = Seed.seeder()
 me = {}
 person = {}
 if User.objects.get(username='joun'):
@@ -89,7 +89,7 @@ def contact(request):
                 msgtoVisitor.send()
                 validFlag = "true"
             else:
-                messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+                  messages.error(request, 'Invalid reCAPTCHA. Please try again.')
 
            
             # try:
@@ -141,9 +141,12 @@ def blog(request):
 
     paginator = Paginator(blogs_list, 2)
     page = request.GET.get('page', 1)
+
     #print (page)
 
     try:
+
+
         blogs = paginator.page(page)
     except PageNotAnInteger:
         blogs = paginator.page(1)
@@ -155,43 +158,25 @@ def blog(request):
 
 def blogPage(request,slug):
     blog = get_object_or_404(Blog, slug=slug)
+    print (blog)
     
     return render(request,'blogPage.html',{'blog':blog})
 
 
-# class TagPostsView(generic.ListView):
-#     template_name = 'blog_posts_tag.html'
-#     paginate_by = 2
-
-#     def get_queryset(self):
-#         slug = self.kwargs['slug']
-#         self.tag = get_object_or_404(Tag, slug=slug)
-#         results_filter = Blog.objects.filter(
-#             tags=self.tag
-#         ).order_by('-created').order_by('-id')
-#         return results_filter
-
-#     def get_context_data(self, **kwargs):
-#         context_data = super(TagPostsView, self).get_context_data(**kwargs)
-#         context_data['tag'] = self.tag
-#         # context_data['page_range'] = Paginator(
-#         #     self.get_queryset(),
-#         #     self.paginate_by,
-#         #     self.request.GET.get('page')
-#         # ).get_page_range()
-#         return context_data
-def tagPostsPage(request,slug):
-    blogs_list = get_object_or_404(Blog, slug=slug)
-    filtered_blog_list = Blog.objects.all()
-    # paginator = Paginator(blogs_list, 2)
-    # page = request.GET.get('page', 1)
+def tagPostsPage(request,tag):
+    #tags_list = get_object_or_404(TagsforBlog)
+    #print (tag)
+    filtered_blog_list =  Blog.objects.filter(tags=tag)
+   
+    paginator = Paginator(filtered_blog_list, 2)
+    page = request.GET.get('page', 1)
     
-    # try:
-    #     blogs = paginator.page(page)
-    # except PageNotAnInteger:
-    #     blogs = paginator.page(1)
-    # except EmptyPage:
-    #     blogs = paginator.page(paginator.num_pages)
+    try:
+        blogs = paginator.page(page)
+    except PageNotAnInteger:
+        blogs = paginator.page(1)
+    except EmptyPage:
+        blogs = paginator.page(paginator.num_pages)
     
-    return render(request,'blog_posts_tag.html',{'blogs':filtered_blog_list})
+    return render(request,'blog_posts_tag.html',{'blogs':blogs})
 

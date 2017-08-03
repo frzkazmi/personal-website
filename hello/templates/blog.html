@@ -3,14 +3,14 @@
 {% block content %}
 	<!-- +++++ Posts Lists +++++ -->
 	<!-- +++++ First Post +++++ -->
-	<div id="grey">
+	<!-- <div id="grey">
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<p><img src="{% static 'img\user.png' %}" width="50px" height="50px"> <ba>Mohd Joun</ba></p>
 					<p class="meta">
-        By: <a href="/author/summonagus/" style="text-transform:uppercase" data-bjax="">summonagus</a> ●
-        at July 21, 2017, 6:46 p.m. ●
+        By: <a href="/author/summonagus/" style="text-transform:uppercase" data-bjax="">summonagus</a> â—�
+        at July 21, 2017, 6:46 p.m. â—�
         Posted under:
         
           <a href="/tag/app/" data-bjax="">#APP</a>, 
@@ -29,11 +29,11 @@
 					<p><a href="blog1">Continue Reading...</a></p>
 				</div>
 
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /grey -->
+			</div>/row
+	    </div> /container
+	</div>/grey
 	
-	<!-- +++++ Second Post +++++ -->
+	+++++ Second Post +++++
 	<div id="white">
 	    <div class="container">
 			<div class="row">
@@ -46,11 +46,11 @@
 					<p><a href="blog2">Continue Reading...</a></p>
 				</div>
 
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /white -->
+			</div>/row
+	    </div> /container
+	</div>/white
 	
-	<!-- +++++ Third Post +++++ -->
+	+++++ Third Post +++++
 	<div id="grey">
 	    <div class="container">
 			<div class="row">
@@ -61,11 +61,11 @@
 					<p class="bq">"A bird sitting on a tree is never afraid of the branch breaking, because her trust is not in the branch, but in her own wings."</p>
 				</div>
 
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /grey -->
+			</div>/row
+	    </div> /container
+	</div> --><!-- /grey -->
 
-	
+	 {% block message_info_homepage %}{% endblock %}
    
    {% for blog in blogs %}
    	
@@ -78,9 +78,9 @@
         
         Posted under:
         {% for tag in blog.tags.all %}
-        	
+        
       
-          <a href="/tag/{{tag}}/" data-bjax="">#{{tag}}</a>{% if not forloop.last %}, {% endif %}
+          <a href="{% url 'tag_posts_page' tag %}" data-bjax="">#{{tag}}</a>{% if not forloop.last %}, {% endif %}
         {% empty %}No tags available for this post
           {% endfor %}
           

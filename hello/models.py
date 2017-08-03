@@ -165,14 +165,15 @@ class TagsforBlog(models.Model):
     
 
     tagname = models.CharField(primary_key=True, max_length=50)
-    tagslug = models.CharField(max_length=120,null=True, blank=True)
+    tagslug = models.SlugField(max_length=200, unique=True, null=True)
+
     
     def __str__(self):
         return self.tagname
 
     @property
     def get_total_posts(self):
-        return Post.objects.filter(tags__pk=self.pk).count()
+        return Blog.objects.filter(tags__pk=self.pk).count()
 
     class Meta:
         verbose_name = 'Detail Tag'
