@@ -152,8 +152,7 @@ def blog(request):
         blogs = paginator.page(1)
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
-    #print (blogs)
-    #print (blogs[0].title)   
+       
     return render(request,'blog.html', {'blogs':blogs})
 
 def blogPage(request,slug):
@@ -167,6 +166,7 @@ def tagPostsPage(request,tag):
     #tags_list = get_object_or_404(TagsforBlog)
     #print (tag)
     filtered_blog_list =  Blog.objects.filter(tags=tag)
+    filtered_blogs_count = Blog.objects.filter(tags=tag).count()
    
     paginator = Paginator(filtered_blog_list, 2)
     page = request.GET.get('page', 1)
@@ -178,5 +178,5 @@ def tagPostsPage(request,tag):
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
     
-    return render(request,'blog_posts_tag.html',{'blogs':blogs})
+    return render(request,'blog_posts_tag.html',{'blogs':blogs,'tag':tag,'blogs_count':filtered_blogs_count})
 
