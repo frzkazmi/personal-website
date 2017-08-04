@@ -29,14 +29,43 @@
         
       </p>
 					<p><bd>{{blog.date}}</bd></p>
-					<h4>{{blog.title}}</h4>
+					<h3>{{blog.title}}</h3>
 					<p>{{blog.content}}</p>
 
 					<hr>
 					<p><a href="../"># Back</a></p>
 				</div>
-
+          
 			</div><!-- /row -->
+			<div class="share panel-body" id="non-printable" style="
+    text-align: center;" >
+      <span>Share on: </span> 
+      <a class="btn btn-sm btn-primary cst__radius" href="https://www.facebook.com/sharer/sharer.php?u=https://joun-testapp.herokuapp.com{% url 'blog_detail_page' slug=blog.slug %}" target="_blank">Facebook</a>
+      <a class="btn btn-sm btn-danger cst__radius" href="https://plus.google.com/share?url=https://joun-testapp.herokuapp.com{% url 'blog_detail_page' slug=blog.slug %}" target="_blank">Google+</a>
+      <a class="btn btn-sm btn-info cst__radius" href="https://twitter.com/share" target="_blank">Twitter</a>
+      <a class="btn btn-sm btn-success cst__radius" href="javascript:window.print()">Print Page</a>
+    </div>
+
+    <style type="text/css" media="print">
+     @media print {
+       #non-printable, .ip-client { display: none; }
+       #printable { display: block; width: 100%;height: 100%;}
+       a[href]::after {content: "";} /*content: " (" attr(href) ")"*/
+     }
+    </style>
+			<div class="panel panel-default related" id="non-printable" style="
+    text-align: center;" >
+      <div class="panel-heading">
+        <h3 class="panel-title">Related Posts</h3>
+      </div>
+        <ul class="list-group">
+          {% for post in relatedPosts %}
+            <li class="list-group-item"><a href="{% url 'blog_detail_page' slug=post.slug %}">{{ post.title }}</a> - <i>{{ post.created }}</i></li>
+            {% empty %}
+              <p style="margin: 1em;">No related posts!</p>
+          {% endfor %}
+        </ul>
+    </div>
 	    </div> <!-- /container -->
 	</div><!-- /white -->
 

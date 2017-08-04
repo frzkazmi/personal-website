@@ -10,8 +10,10 @@ from django.template import Context
 from django.template.loader import get_template, render_to_string
 import os, requests
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
 from gettingstarted import settings
 from django_seed import Seed
+from hello.templatetags.globaltags import populartags, recentposts
 
 
 ####seeder = Seed.seeder()
@@ -139,8 +141,22 @@ def blog(request):
     blogs_list = Blog.objects.all()
     #print (blogs_list)
 
-    paginator = Paginator(blogs_list, 2)
+    paginator = Paginator(blogs_list, 3)
     page = request.GET.get('page', 1)
+    mapping = []
+    tags_queryset = TagsforBlog.objects.all()
+    for tag in tags_queryset:
+        
+        mapping.append({
+            'tag': tag,
+            'total': blogs_list.filter(tags=tag).count()
+        } )
+        
+    
+    mapping.sort(key=lambda x: int(x['total']), reverse=True)
+    print (mapping)
+    print ('after mapping')
+    print (populartags)
 
     #print (page)
 
@@ -153,23 +169,39 @@ def blog(request):
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
        
-    return render(request,'blog.html', {'blogs':blogs})
+    return render(request,'blog.html', {'blogs':blogs,'populartags':mapping[:5],'recentposts':blogs_list[:5]})
 
 def blogPage(request,slug):
     blog = get_object_or_404(Blog, slug=slug)
-    print (blog)
+    #print (blog.id)
+    tags_list = blog.tags.all()
+    related_posts = (Blog.objects.filter(tags__in=list(tags_list)).exclude(id=blog.id).distinct()[:4])
     
-    return render(request,'blogPage.html',{'blog':blog})
+   
+    
+    return render(request,'blogPage.html',{'blog':blog,'relatedPosts':related_posts})
 
 
 def tagPostsPage(request,tag):
     #tags_list = get_object_or_404(TagsforBlog)
     #print (tag)
     filtered_blog_list =  Blog.objects.filter(tags=tag)
+    blogs_list = Blog.objects.all()
     filtered_blogs_count = Blog.objects.filter(tags=tag).count()
    
-    paginator = Paginator(filtered_blog_list, 2)
+    paginator = Paginator(filtered_blog_list, 3)
     page = request.GET.get('page', 1)
+    mapping = []
+    tags_queryset = TagsforBlog.objects.all()
+    for tag in tags_queryset:
+        
+        mapping.append({
+            'tag': tag,
+            'total': Blog.objects.filter(tags=tag).count()
+        } )
+        
+    
+    mapping.sort(key=lambda x: int(x['total']), reverse=True)
     
     try:
         blogs = paginator.page(page)
@@ -178,5 +210,27 @@ def tagPostsPage(request,tag):
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
     
-    return render(request,'blog_posts_tag.html',{'blogs':blogs,'tag':tag,'blogs_count':filtered_blogs_count})
+    return render(request,'blog_posts_tag.html',{'blogs':blogs,'tag':tag,'blogs_count':filtered_blogs_count,'populartags':mapping[:5],'recentposts':blogs_list[:5]})
 
+
+def search(request):
+    query = request.GET.get('q')
+    
+    print ('requested query is')
+    print (query)
+    if query is not None and query != '':
+        
+        blogs = Blog.objects.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        )
+        print (blogs)
+
+        # you also can limit the maximum of `posts` here.
+        # eg: posts[:50]
+        return render(
+            request, 'blogSearchPage.html',
+            {'blogs': blogs,'query':query}
+        )
+    return render(
+        request, 'blogSearchPage.html'
+    )

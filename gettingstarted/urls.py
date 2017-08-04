@@ -26,7 +26,7 @@ urlpatterns = [          url(r'^$', views.index, name="index"),
                        url(r'^blog/tag/(?P<tag>[\w\-]+)/$', views.tagPostsPage, name='tag_posts_page'),
 
                        url(r'^blog/$', views.blog, name="blog"),
-                       
+                       url(r'^blog/search', views.search, name="blog_search_page"),
                        url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
                            name='django.contrib.sitemaps.views.sitemap'),
                        url(r'^robots\.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),  # noqa
