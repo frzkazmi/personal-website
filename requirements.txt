@@ -5,5 +5,7 @@ psycopg2==2.6.2
 whitenoise==2.0.6
 python-http-client==2.4.0
 pytz==2017.2
-sendgrid==3.6.5
-sendgrid-django==4.0.4
+django-livereload-server==0.2.3
+python-dateutil==2.6.1
+requests==2.18.1
+django-simple-captcha==0.5.5
