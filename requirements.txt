@@ -8,4 +8,5 @@ pytz==2017.2
 django-livereload-server==0.2.3
 python-dateutil==2.6.1
 requests==2.18.1
+django-seed==0.1.7
 django-simple-captcha==0.5.5
