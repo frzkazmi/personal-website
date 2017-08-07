@@ -5,3 +5,4 @@ staticfiles
 db.sqlite3
 python3venv
 py2venv
+.settings/org.eclipse.core.resources.prefs

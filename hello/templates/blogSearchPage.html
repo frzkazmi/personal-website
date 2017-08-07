@@ -1,6 +1,110 @@
-{% extends "blog.html" %}
+
+{% extends "base.html" %}
 {% block title %}Posts under query {{ query }} - {{ block.super }}{% endblock %}
 {% block canonical_url %}https://{{ request.get_host }}{% url 'blog_search_page' %}{% endblock %}
-{% block message_info_homepage %}
-  <p class="message__info">Post under query: <i>"{{ query }}"</i></p>
+
+{% load staticfiles %}
+{% block content %}
+      <form method="get" action="{% url 'blog_search_page' %}" class="navbar-form navbar-right" role="search">
+           <div class="form-group">
+             
+             <input type="text" name="q" maxlength="140" id="search-input" class="form-control cst__radius" placeholder="Search" required/>
+           </div>
+           <button id ="search_button" type="submit" class="btn btn-danger cst__radius"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+         </form>
+   <div id="main-results-search"></div>
+	 {% block message_info_homepage %}{% endblock %}
+   <p class="message__info" style="
+    text-align: center;font-size: 18px">Posts under query: <i style="font-size: 22px">"{{ query }}"</i>  ( {{count}} matching blogs found)</p>
+   
+   {% for blog in blogs %}
+   	
+	<div id="grey" class="post">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p><img src="{% static 'img\user.png' %}" width="50px" height="50px"> <ba>Mohd Joun</ba></p>
+					<p class="meta">
+        
+        Posted under:
+        {% for tag in blog.tags.all %}
+              
+          <a href="{% url 'tag_posts_page' tag %}" data-bjax="">#{{tag}}</a>{% if not forloop.last %}, {% endif %}
+        {% empty %}No tags available for this post
+          {% endfor %}
+                        </p>
+					<p><bd>{{blog.date}}</bd></p>
+					<h4>{{blog.title}}</h4>
+					<p>{{blog.content |safe|striptags|truncatewords:"32"|linebreaks}}</p>
+					<p><a href="{% url 'blog_detail_page' slug=blog.slug %}">Continue Reading...</a></p>
+				</div>
+
+			</div><!-- /row -->
+			
+				    </div> <!-- /container -->
+	    
+	</div><!-- /grey -->
+   {% endfor %}
+   <br>
+   
+   {% load globaltags %}
+   <div class=sidebar>
+			<div class="sidebar-module sidebar-module-inset" style="width: 20%; background-color: #f5f5f5;float:right">
+  <h4>Recent Posts</h4>
+
+  {% for post in recentposts %}
+    <li><a href="{% url 'blog_detail_page' slug=post.slug %}">{{ post.title }}</a></li>
+
+  {% empty %}
+    <p>No posts yet!</p>
+  {% endfor %}
+</div>
+<br>
+<div class="sidebar-module sidebar-module-inset" style="width: 20%; background-color: #f5f5f5;">
+  <h4>Popular Tags</h4>
+
+  {% for tag in populartags %}
+  
+    <a class="btn btn-sm btn-block btn-default cst__radius cst__tags" href="{% url 'tag_posts_page' tag.tag.tagname %}">
+      {{ tag.tag }} <span class="badge pull-right">{{ tag.total }}</span>
+    </a>
+  {% empty %}
+    <p>No tags yet!</p>
+  {% endfor %}
+</div>
+</div>
+
+	{% if blogs.has_other_pages %}
+  <ul class="pagination">
+    {% if blogs.has_previous %}
+      <li><a href="?q={{ query }}&page={{ blogs.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in blogs.paginator.page_range %}
+      {% if blogs.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?q={{ query }}&page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if blogs.has_next %}
+      <li><a href="?q={{ query }}&"page={{ blogs.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+<style>
+.btn-default .badge {
+    
+    background-color: dodgerblue;
+}
+.glyphicon {
+    font-size: 12px;
+
+</style>
+
+ 
 {% endblock %}

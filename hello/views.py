@@ -188,7 +188,7 @@ def tagPostsPage(request,tag):
     filtered_blog_list =  Blog.objects.filter(tags=tag)
     blogs_list = Blog.objects.all()
     filtered_blogs_count = Blog.objects.filter(tags=tag).count()
-   
+    tag_heading = tag
     paginator = Paginator(filtered_blog_list, 3)
     page = request.GET.get('page', 1)
     mapping = []
@@ -210,7 +210,7 @@ def tagPostsPage(request,tag):
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
     
-    return render(request,'blog_posts_tag.html',{'blogs':blogs,'tag':tag,'blogs_count':filtered_blogs_count,'populartags':mapping[:5],'recentposts':blogs_list[:5]})
+    return render(request,'blog_posts_tag.html',{'blogs':blogs,'tag':tag_heading,'blogs_count':filtered_blogs_count,'populartags':mapping[:5],'recentposts':blogs_list[:5]})
 
 
 def search(request):
@@ -218,19 +218,42 @@ def search(request):
     
     print ('requested query is')
     print (query)
+    blogs_list = Blog.objects.all()
+    mapping = []
+    tags_queryset = TagsforBlog.objects.all()
+    for tag in tags_queryset:
+        
+        mapping.append({
+            'tag': tag,
+            'total': blogs_list.filter(tags=tag).count()
+        } )
+        
+    
+    mapping.sort(key=lambda x: int(x['total']), reverse=True)
+            
+        
     if query is not None and query != '':
         
-        blogs = Blog.objects.filter(
+        filtered_blogs = Blog.objects.filter(
             Q(title__icontains=query) | Q(content__icontains=query)
         )
-        print (blogs)
-
+        print (filtered_blogs)
+        filtered_blogs_count = filtered_blogs.count()
+        paginator = Paginator(filtered_blogs, 3)
+        page = request.GET.get('page', 1)
+        try:
+            blogs = paginator.page(page)
+        except PageNotAnInteger:
+            blogs = paginator.page(1)
+        except EmptyPage:
+            blogs = paginator.page(paginator.num_pages)
         # you also can limit the maximum of `posts` here.
         # eg: posts[:50]
         return render(
             request, 'blogSearchPage.html',
-            {'blogs': blogs,'query':query}
+            {'blogs': blogs,'query':query,'count':filtered_blogs_count,'populartags':mapping[:5],'recentposts':blogs_list[:5]}
         )
+        
     return render(
-        request, 'blogSearchPage.html'
+        request, 'blogSearchPage.html',{'populartags':mapping[:5],'recentposts':blogs_list[:5]}
     )
