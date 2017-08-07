@@ -48,7 +48,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hello',
     'livereload',
-    'django_seed'
+   
 )
 
 FAKER_LOCALE = None     # settings.LANGUAGE_CODE is loaded
