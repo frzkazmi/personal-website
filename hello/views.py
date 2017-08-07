@@ -21,8 +21,8 @@ me = {}
 person = {}
 if User.objects.get(username='joun'):
     me = User.objects.get(username='joun')
-##print (Person.objects.filter(userName=me))
-##print (Person.objects.all())
+###print (Person.objects.filter(userName=me))
+###print (Person.objects.all())
 if Person.objects.filter(userName=me):
     person = Person.objects.filter(userName=me)[0]
 
@@ -44,16 +44,16 @@ def contact(request):
 
     if request.method == 'GET':
 
-        #print ("contact GET")
+        ##print ("contact GET")
         form = ContactForm()
     else:
-        #print ("contact POST")
+        ##print ("contact POST")
 
         form = ContactForm(request.POST)
-        #print (form.errors)
+        ##print (form.errors)
         if not form.is_valid():
             pass
-            #print ('invalid form')
+            ##print ('invalid form')
         if form.is_valid():
             ''' Begin reCAPTCHA validation '''
             recaptcha_response = request.POST.get('g-recaptcha-response')
@@ -61,22 +61,22 @@ def contact(request):
                 'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
                 'response': recaptcha_response
             }
-            print (data)
+            #print (data)
             r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
             result = r.json()
-            print (result)
+            #print (result)
             ''' End reCAPTCHA validation '''
 
             if result['success']:
                 #form.save()
                 messages.success(request, 'Form submitted with success!')
-                #print ("valid form")
+                ##print ("valid form")
                 subject = form.cleaned_data['subject']
                 from_person = form.cleaned_data['senderName']
                 from_email = form.cleaned_data['senderEmail']
                 message = form.cleaned_data['message']
                 subject_for_visitor ="Acknowledgement of response submitted on joun-testapp.herokuapp.com"
-                print (subject, from_person,from_email, message)
+                #print (subject, from_person,from_email, message)
                 #subject, from_email, to = subject, BASKET_MAIL_FROM, BASKET_MAIL_TO
                 ctx = {'senderName': from_person,'senderEmail':from_email,'message':message}
                 text_content = render_to_string('mail.txt', ctx)
@@ -139,7 +139,7 @@ def blog(request):
     # seeder.add_entity(Blog, 6)    
     # insertedPks = seeder.execute()
     blogs_list = Blog.objects.all()
-    #print (blogs_list)
+    ##print (blogs_list)
 
     paginator = Paginator(blogs_list, 3)
     page = request.GET.get('page', 1)
@@ -154,11 +154,11 @@ def blog(request):
         
     
     mapping.sort(key=lambda x: int(x['total']), reverse=True)
-    print (mapping)
-    print ('after mapping')
+    #print (mapping)
+    #print ('after mapping')
    
 
-    #print (page)
+    ##print (page)
 
     try:
 
@@ -173,7 +173,7 @@ def blog(request):
 
 def blogPage(request,slug):
     blog = get_object_or_404(Blog, slug=slug)
-    #print (blog.id)
+    ##print (blog.id)
     tags_list = blog.tags.all()
     related_posts = (Blog.objects.filter(tags__in=list(tags_list)).exclude(id=blog.id).distinct()[:4])
     
@@ -184,7 +184,7 @@ def blogPage(request,slug):
 
 def tagPostsPage(request,tag):
     #tags_list = get_object_or_404(TagsforBlog)
-    #print (tag)
+    ##print (tag)
     filtered_blog_list =  Blog.objects.filter(tags=tag)
     blogs_list = Blog.objects.all()
     filtered_blogs_count = Blog.objects.filter(tags=tag).count()
@@ -216,8 +216,8 @@ def tagPostsPage(request,tag):
 def search(request):
     query = request.GET.get('q')
     
-    print ('requested query is')
-    print (query)
+    #print ('requested query is')
+    #print (query)
     blogs_list = Blog.objects.all()
     mapping = []
     tags_queryset = TagsforBlog.objects.all()
@@ -237,7 +237,7 @@ def search(request):
         filtered_blogs = Blog.objects.filter(
             Q(title__icontains=query) | Q(content__icontains=query) | Q(keywords__icontains=query)
         )
-        print (filtered_blogs)
+        #print (filtered_blogs)
         filtered_blogs_count = filtered_blogs.count()
         paginator = Paginator(filtered_blogs, 3)
         page = request.GET.get('page', 1)

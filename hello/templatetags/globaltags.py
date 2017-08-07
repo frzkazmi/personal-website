@@ -29,12 +29,12 @@ def populartags():
         } for tag in tags_queryset
     ]
     mapping.sort(key=lambda x: int(x['total']), reverse=True)
-    print (mapping)
+    #print (mapping)
     return {'populartags':mapping[:5]}
 
 
 @register.inclusion_tag('blog.html')
 def recentposts():
     posts = Blog.objects.all()
-    print (posts)
+    #print (posts)
     return {'recentposts':posts[:4]}
