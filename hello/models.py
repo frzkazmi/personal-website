@@ -148,6 +148,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=180)
     slug = models.SlugField(unique=True)
     published = models.BooleanField(default=False)
+    keywords = models.CharField(max_length=200,null=True)
     tags = models.ManyToManyField('TagsforBlog')
     
     class Meta:

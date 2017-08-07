@@ -235,7 +235,7 @@ def search(request):
     if query is not None and query != '':
         
         filtered_blogs = Blog.objects.filter(
-            Q(title__icontains=query) | Q(content__icontains=query)
+            Q(title__icontains=query) | Q(content__icontains=query) | Q(keywords__icontains=query)
         )
         print (filtered_blogs)
         filtered_blogs_count = filtered_blogs.count()
