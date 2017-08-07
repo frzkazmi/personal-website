@@ -44,7 +44,7 @@ class Person(models.Model):
     personalDescription = models.TextField(default='')
     careerObjective = models.TextField(default='')
     fbUrl = models.CharField(max_length=200,default='')
-    mywebsite = models.CharField(max_length=200,default='')
+    mywebsite = models.CharField(max_length=200,null=True)
     skypeId = models.CharField(max_length=200,default='')
     mobileNumber = models.CharField(max_length=200,default='')
 
