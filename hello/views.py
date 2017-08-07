@@ -13,7 +13,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from gettingstarted import settings
 from django_seed import Seed
-from hello.templatetags.globaltags import populartags, recentposts
+#from hello.templatetags.globaltags import populartags, recentposts
 
 
 ####seeder = Seed.seeder()
@@ -156,7 +156,7 @@ def blog(request):
     mapping.sort(key=lambda x: int(x['total']), reverse=True)
     print (mapping)
     print ('after mapping')
-    print (populartags)
+   # print (populartags)
 
     #print (page)
 
