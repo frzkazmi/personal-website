@@ -1,0 +1,1630 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "hello",
+    "model": "achievement"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "hello",
+    "model": "blog"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "hello",
+    "model": "comment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "hello",
+    "model": "company"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "hello",
+    "model": "education"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "hello",
+    "model": "person"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "hello",
+    "model": "personalproject"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "hello",
+    "model": "skills"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "hello",
+    "model": "strength"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "hello",
+    "model": "subscriber"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "hello",
+    "model": "tagsforblog"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "hello",
+    "model": "technicalskill"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "hello",
+    "model": "companyproject"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bwijpbn7b9pgq4st2lwat772oyi8m6t5",
+  "fields": {
+    "session_data": "OGY3ZDI0ZjFjYTQ5NjQwOGM2Zjc0MjU0ODQ1MzQzMDk5YzExYWI4ZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NTAyYWIyMTk3MWIzMjk4ZTVkY2I1MTcwZWRjMDI3MzIxMmVhMGI0In0=",
+    "expire_date": "2017-08-14T12:05:39.878Z"
+  }
+},
+{
+  "model": "hello.company",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "companyName": "Nvizion Solutions",
+    "companyRole": "Associate I, Software Developer",
+    "companyLocation": "Gurgaon, India",
+    "joiningDate": "2016-01-07",
+    "leavingDate": "2017-07-31",
+    "workDescription": "Worked on  their e-commerce based product called Nitrogen.",
+    "projectRoles": "[\"Frontend and backend development\", \"REST API development\", \"Queuing server\", \"Cdn log analytics\", \"Purge caching functionality\", \"database integration\"]"
+  }
+},
+{
+  "model": "hello.education",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "courseName": "B.tech Computer Science",
+    "courseDuration": "2012-2016",
+    "coursePercentage": "61",
+    "instituteName": "Krishna Institute Of Engineering And Technology",
+    "instituteLocation": "Ghaziabad, India"
+  }
+},
+{
+  "model": "hello.technicalskill",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "languages": "[\"Python\", \"Java\", \"Javascript\", \"C++\", \"SQL\", \"HTML/CSS\"]",
+    "databases": "[\"MySQL\", \"SQLite\", \"MongoDB\", \"PostGres\", \"Redis\"]",
+    "BackEnds": "[\"Django\", \"NodeJs\", \"Flask\", \"ExpressJS\", \"Spring\"]",
+    "FrontEnds": "[\"Html/Css\", \"Bootstrap\", \"Jquery\", \"AngularJS\", \"ReactJs+Flux\", \"Handlebar JS\", \"Moustache\"]",
+    "Devtools": "[\"Source Tree\", \"Tortoise SVN\", \"Eclipse\", \"Sublime Text\", \"GIT\", \"Notepad++\", \"Putty\", \"WinScp\"]",
+    "otherLibraries": "[\"Scrapy\", \"Requests\", \"BeautifulSoup\", \"Selenium\", \"Mechanize\", \"urlib\", \"lxml\", \"nUMPY\"]",
+    "Webservices": "[\"Heroku\", \"Django Rest Framework\"]"
+  }
+},
+{
+  "model": "hello.skills",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "skillName": "Python",
+    "skillAwarenessPercent": "90"
+  }
+},
+{
+  "model": "hello.skills",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "skillName": "Django",
+    "skillAwarenessPercent": "82"
+  }
+},
+{
+  "model": "hello.skills",
+  "pk": 3,
+  "fields": {
+    "user": 1,
+    "skillName": "Flask",
+    "skillAwarenessPercent": "72"
+  }
+},
+{
+  "model": "hello.skills",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "skillName": "NodeJS",
+    "skillAwarenessPercent": "80"
+  }
+},
+{
+  "model": "hello.skills",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "skillName": "Angular",
+    "skillAwarenessPercent": "85"
+  }
+},
+{
+  "model": "hello.skills",
+  "pk": 6,
+  "fields": {
+    "user": 1,
+    "skillName": "ReactJS",
+    "skillAwarenessPercent": "74"
+  }
+},
+{
+  "model": "hello.blog",
+  "pk": 1,
+  "fields": {
+    "content": "Hello guys, this day I want to share a simply tutorial how to fix CommandError: Unable to find a locale path to store translations for file <app_name>/__init__.py for Django 1.10\r\n\r\nIn my previous LOCALE_PATHS inside file of settings.py is like this:\r\n\r\nLOCALE_PATHS = (\r\n    os.path.join(BASE_DIR, 'projectname/locale'),\r\n)\r\nThis should an error if you work under Django>=1.10.5, because as docs says, LOCALE_PATHS is a list, an not tupe.\r\n\r\nLOCALE_PATHS = [\r\n    os.path.join(BASE_DIR, 'projectname/locale'),\r\n]\r\nHope it usefull..",
+    "date": "2017-08-03T00:52:33Z",
+    "title": "Fixed CommandError: Unable to find a locale path to store translations for file __init__.py",
+    "slug": "fixed-commanderror-unable-find-locale-path-store-t",
+    "published": true,
+    "keywords": "Problem, Solution, locale path error",
+    "tags": [
+      "Problem",
+      "Solution"
+    ]
+  }
+},
+{
+  "model": "hello.blog",
+  "pk": 2,
+  "fields": {
+    "content": "Again, we try to avoid most established choices such as Django, Flask, etc. that are kind of standard nowadays. Also, some of these libraries date prior to 2016, but either they had an explosion in popularity this year or we think they are great enough to deserve the spot. Here we go!\r\n\r\n1. Zappa\r\nSince the release of AWS Lambda (and others that have followed), all the rage has been about serverless architectures. These allow microservices to be deployed in the cloud, in a fully managed environment where one doesn\u2019t have to care about managing any server, but is assigned stateless, ephemeral computing containers that are fully managed by a provider. With this paradigm, events (such as a traffic spike) can trigger the execution of more of these containers and therefore give the possibility to handle \u201cinfinite\u201d horizontal scaling.\r\n\r\nZappa is the serverless framework for Python, although (at least for the moment) it only has support for AWS Lambda and AWS API Gateway. It makes building so-architectured apps very simple, freeing you from most of the tedious setup you would have to do through the AWS Console or API, and has all sort of commands to ease deployment and managing different environments.\r\n\r\n2. Sanic + uvloop\r\nWho said Python couldn\u2019t be fast? Apart from competing for the best name of a software library ever, Sanic also competes for the fastest Python web framework ever, and appears to be the winner by a clear margin. It is a Flask-like Python 3.5+ web server that is designed for speed. Another library, uvloop, is an ultra fast drop-in replacement for asyncio\u2019s event loop that uses libuv under the hood. Together, these two things make a great combination!\r\n\r\nAccording to the Sanic author\u2019s benchmark, uvloop could power this beast to handle more than 33k requests/s which is just insane (and faster than node.js). Your code can benefit from the new async/await syntax so it will look neat too; besides we love the Flask-style API. Make sure to give Sanic a try, and if you are using asyncio, you can surely benefit from uvloop with very little change in your code!\r\n\r\n3. asyncpg\r\nIn line with recent developments for the asyncio framework, the folks fromMagicStack bring us this efficient asynchronous (currently CPython 3.5 only) database interface library designed specifically for PostgreSQL. It has zero dependencies, meaning there is no need to have libpq installed. In contrast withpsycopg2 (the most popular PostgreSQL adapter for Python) which exchanges data with the database server in text format, asyncpg implements PostgreSQL binary I/O protocol, which not only allows support for generic types but also comes with numerous performance benefits.\r\n\r\nThe benchmarks are clear: asyncpg is on average, at least 3x faster than psycopg2(or aiopg), and faster than the node.js and Go implementations.\r\n\r\n4. boto3\r\nIf you have your infrastructure on AWS or otherwise make use of their services (such as S3), you should be very happy that boto, the Python interface for AWS API, got a completely rewrite from the ground up. The great thing is that you don\u2019t need to migrate your app all at once: you can use boto3 and boto (2) at the same time; for example using boto3 only for new parts of your application.\r\n\r\nThe new implementation is much more consistent between different services, and since it uses a data-driven approach to generate classes at runtime from JSON description files, it will always get fast updates. No more lagging behind new Amazon API features, move to boto3!\r\n\r\n5. TensorFlow\r\nDo we even need an introduction here? Since it was released by Google in November 2015, this library has gained a huge momentum and has become the #1 trendiest GitHub Python repository. In case you have been living under a rock for the past year, TensorFlow is a library for numerical computation using data flow graphs, which can run over GPU or CPU.\r\n\r\nWe have quickly witnessed it become a trend in the Machine Learning community (especially Deep Learning, see our post on 10 main takeaways from MLconf), not only growing its uses in research but also being widely used in production applications. If you are doing Deep Learning and want to use it through a higher level interface, you can try using it as a backend for Keras (which made it to last years post) or the newer TensorFlow-Slim.\r\n\r\n6. gym + universe\r\nIf you are into AI, you surely have heard about the OpenAI non-profit artificial intelligence research company (backed by Elon Musk et al.). The researchers have open sourced some Python code this year! Gym is a toolkit for developing and comparing reinforcement learning algorithms. It consists of an open-source library with a collection of test problems (environments) that can be used to test reinforcement learning algorithms, and a site and API that allows to compare the performance of trained algorithms (agents). Since it doesn\u2019t care about the implementation of the agent, you can build them with the computation library of your choice: bare numpy, TensorFlow, Theano, etc.\r\n\r\nWe also have the recently released universe, a software platform for researching into general intelligence across games, websites and other applications. This fits perfectly with gym, since it allows any real-world application to be turned into a gymenvironment. Researchers hope that this limitless possibility will accelerate research into smarter agents that can solve general purpose tasks.\r\n\r\n7. Bokeh\r\nYou may be familiar with some of the libraries Python has to offer for data visualization; the most popular of which are matplotlib and seaborn. Bokeh, however, is created for interactive visualization, and targets modern web browsers for the presentation. This means Bokeh can create a plot which lets youexplore the data from a web browser. The great thing is that it integrates tightly with Jupyter Notebooks, so you can use it with your probably go-to tool for your research. There is also an optional server component, bokeh-server, with many powerful capabilities like server-side downsampling of large dataset (no more slow network tranfers/browser!), streaming data, transformations, etc.\r\n\r\nMake sure to check the gallery for examples of what you can create. They look awesome!\r\n\r\n8. Blaze\r\nSometimes, you want to run analytics over a dataset too big to fit your computer\u2019s RAM. If you cannot rely on numpy or Pandas, you usually turn to other tools like PostgreSQL, MongoDB, Hadoop, Spark, or many others. Depending on the use case, one or more of these tools can make sense, each with their own strengths and weaknesses. The problem? There is a big overhead here because you need to learn how each of these systems work and how to insert data in the proper form.\r\n\r\nBlaze provides a uniform interface that abstracts you away from several database technologies. At the core, the library provides a way to express computations. Blaze itself doesn\u2019t actually do any computation: it just knows how to instruct a specific backend who will be in charge of performing it. There is so much more to Blaze (thus the ecosystem), as libraries that have come out of its development. For example, Dask implements a drop-in replacement for NumPy array that can handle content larger than memory and leverage multiple cores, and also comes with dynamic task scheduling. Interesting stuff.\r\n\r\n9. arrow\r\nThere is a famous saying that there are only two hard problems in Computer Science: cache invalidation and naming things. I think the saying is clearly missing one thing: managing datetimes. If you have ever tried to do that in Python, you will know that the standard library has a gazillion modules and types: datetime,date, calendar, tzinfo, timedelta, relativedelta, pytz, etc. Worse, it is timezone naive by default.\r\n\r\nArrow is \u201cdatetime for humans\u201d, offering a sensible approach to creating, manipulating, formatting and converting dates, times, and timestamps. It is areplacement for the datetime type that supports Python 2 or 3, and provides a much nicer interface as well as filling the gaps with new functionality (such ashumanize). Even if you don\u2019t really need arrow, using it can greatly reduce the boilerplate in your code.\r\n\r\n10. hug\r\nExpose your internal API externally, drastically simplifying Python APIdevelopment. Hug is a next-generation Python 3 (only) library that will provide you with the cleanest way to create HTTP REST APIs in Python. It is not a web framework per se (although that is a function it performs exceptionally well), but only focuses on exposing idiomatically correct and standard internal Python APIs externally. The idea is simple: you define logic and structure once, and you can expose your API through multiple means. Currently, it supports exposing REST API or command line interface.\r\n\r\nYou can use type annotations that let hug not only generate documentation for your API but also provide with validation and clean error messages that will make your life (and your API user\u2019s) a lot easier. Hug is built on Falcon\u2019s high performance HTTP library, which means you can deploy this to production using any wsgi-compatible server such as gunicorn.",
+    "date": "1984-07-15T15:33:19Z",
+    "title": "Top 10 Python libraries of 2016",
+    "slug": "Top-10-Python-libraries-of-2016",
+    "published": true,
+    "keywords": "library, top, news",
+    "tags": [
+      "News",
+      "Python"
+    ]
+  }
+},
+{
+  "model": "hello.blog",
+  "pk": 3,
+  "fields": {
+    "content": "PythonAnywhere is an online Integrated Development Environment (IDE) and Web hosting service based on the Python programming language. It provides in-browser access to server-based Python and Bash Command-line interfaces, along with a code editor with Syntax highlighting. Program files can be transferred to and from the service using the user's browser. Web applications hosted by the service can be written using any WSGI-based application framework. (wikipedia)\r\n\r\nMakesure you created an account and logged in first, before doing this tutorial.\r\n1. Go to https://www.pythonanywhere.com/user/yourusername/webapps/, and create new Django.\r\n\r\nCreate new Django project at Pythonanywhere\r\n\r\n2. Create your virtualenv\r\n\r\n$ mkvirtualenv env-mysite\r\nCreate virtualenv in Pythonanywhere\r\n\r\n3. Take your django project\r\n\r\nYou can use SSH, git, or other else to take your django project into pythonanywhere. In this case, I clone my Django project via git for easilier.\r\n\r\n$ git clone https://github.com/agusmakmun/Django-Blog-Python-Learning.git\r\nCloning django project\r\n\r\n4. Sync the virtualenv\r\n\r\nGo to https://www.pythonanywhere.com/user/yourusername/webapps/, and change to your virtualenv that you created before.\r\n\r\n\r\nVirtualenv Setting\r\n\r\n5. Edit file settings.py\r\n\r\nDon't miss to change common settings inside your file settings.py, such as:\r\n\r\nALLOWED_HOSTS = [u'yourusername.pythonanywhere.com']\r\n\r\n# default static files settings for PythonAnywhere.\r\n# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info\r\nMEDIA_ROOT = u'/home/yourusername/swotproject/media'\r\nMEDIA_URL = '/media/'\r\nSTATIC_ROOT = u'/home/yourusername/swotproject/static'\r\nSTATIC_URL = '/static/'\r\n6. Reload your web app\r\n\r\nReload your web app and then check at your site..",
+    "date": "2007-11-29T09:06:03Z",
+    "title": "Deploying Django Project at Pythonanywhere",
+    "slug": "Deploying-Django-Project-at-Pythonanywhere",
+    "published": true,
+    "keywords": "App ,django , solution, hosting",
+    "tags": [
+      "Django",
+      "App",
+      "Solution"
+    ]
+  }
+},
+{
+  "model": "hello.blog",
+  "pk": 5,
+  "fields": {
+    "content": "Django Contact Form Widget Django Contact Form Widget\r\n\r\nDjango contact widget is once of plugin i already released. This is simple contact widget plugin for Django. inspired from https://github.com/ubernostrum/django-contact-form, but made more simple and easy to use.\r\n\r\nDemo\r\nhttps://github.com/agusmakmun/django-contact-widget/tree/master/contact_widget_demo\r\nInstall\r\nDjango Contact Widget is available directly from PyPI:\r\n$ pip install django-contact-widget\r\n*). And don't forget to add \"contact_widget\" to your INSTALLED_APPS.\r\n\r\nRequirement\r\nDjango>=1.10.1\r\nDatabase Migration\r\n$ ./manage.py makemigrations contact_widget\r\n$ ./manage.py migrate contact_widget\r\nSetting Configuration\r\nEmail Configuration in file of settings.py\r\n\r\nEMAIL_HOST = 'smtp.gmail.com'  # eg: 'smtp.gmail.com'\r\nEMAIL_PORT = 587\r\nEMAIL_HOST_USER = 'your_email@domain.com'\r\nEMAIL_HOST_PASSWORD = 'your_password'\r\nEMAIL_USE_TLS = True\r\nDEFAULT_FROM_EMAIL = EMAIL_HOST_USER\r\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\r\nURL configuration\r\nThe easiest way to set up the views in django-contact-widget is to just use the provided URLconf, found at contact_widget.urls. You can include it wherever you like in your site's URL configuration; for example, to have it live at the URL /contact/:\r\n\r\nfrom django.conf.urls import include, url\r\nurlpatterns = [\r\n    # ....\r\n    url(r'^contact/', include('contact_widget.urls')),\r\n]\r\nUsage\r\nInclude the template from contact_widget/contact.html to your sidebar for example.\r\n\r\n{% include \"contact_widget/contact.html\" %}\r\nLicense\r\nMIT\r\nSource code: https://github.com/agusmakmun/django-contact-widget",
+    "date": "2017-08-03T15:36:02Z",
+    "title": "Django Contact Form Widget",
+    "slug": "django-contact-form-widget",
+    "published": false,
+    "keywords": "Contact form, Django, Plugin",
+    "tags": [
+      "Django",
+      "Solution"
+    ]
+  }
+},
+{
+  "model": "hello.blog",
+  "pk": 6,
+  "fields": {
+    "content": "Introduction\r\n\r\nWeb Scraping is an important and powerful way to extract the information from the Web and use it for further analysis to get insight from the data on the Web. Many websites publish their open web api\u2019s to pull the data from their Websites but not everyone has api\u2019s build to extract the data directly from the Website. Scraping the data from web can be a tedious task if you don\u2019t have the right tools and knowledge. There are lot of steps that needs to be carried out after scrpaing the data from Web to make it further ready for analysis & investigations. There is an old saying that Data Scientists & Analysts spend 80% of their productive time in collecting and cleaning the data and only 20% of the time in analyzing and getting meaningful insight from it.\r\n\r\nSo Web Scraping is the process of getting the Unstructured data from the web and converting it into Structured format for further analysis. There are different set of tools available which can be used for scraping but before that we need to take a decision which tool will be best suited for our work. Before we go for the tool selection we need to have the requirements crystal clear for Scraping such as:\r\n\r\nHow are the data stored in the website?\r\nIs my website AJAX powered?\r\nDo we have a secured site with logins\r\nWhat is the form of data that needs to captured\r\nYou should be legally Compliant before Scraping the data from any website. Read the Privacy Policy of the websites before you start the scraping\r\n\r\nPython Scraping Libraries\r\n\r\nBeautifulsoup\r\nMechanize\r\nScrapy\r\nUrllib2/Requests\r\nThese are excellent libraries which extracts almost all kind of data from web but these tools are good for static websites\r\nSo when you have to scrape websites where there is no Javascripts involved or static contents. However for Dynamic Websites where the pages are rendered using Javascript libraries like jquery cannot be scraped using these libraries.\r\n\r\nWhy Selenium Webdriver\r\n\r\nSelenium is a tool which is primarily used for Browser Automation but can be used for web scraping as well if you have any requirement to fetch the data from dynamic websites or need to do some actions(like pressing a button or form submissions etc.) for the data to be populated on the page that cannot be achieved using these standard libraries. It can also be used to login to the webpages for the secured websites. Selenium can also help to scrap the data from websites where data has to be extracted from the multiple pages from paginations.\r\n\r\nNow you might be wondering, Can Selenium fetch all the data that I need from HTML pages like tables, Div\u2019s, Span texts etc. and the simple answer is Yes, it does scrape the entire webpage and dump it in the format of your choice, it has an upper hand with the above standard libraries because it wait for the page to loads and ensure the javascript is executed successfuly before it starts scraping the page.\r\n\r\nSelenium identifies the elements using certain locators such as XPATH, CSSSELCTOR , ID, Name, link etc. The most efficient and common way to identify the element is using id and should always be the first choice when you have multiple choices to identify.\r\n\r\n<div id=\u201darticle-20\u201c>\u2026..</div>\r\n\r\nWhen you don\u2019t have a choice to identify the elements if there are no id, name is present then the best option would be to go for either XPATH or CSS Selector, the best way to find the xpath for an element is do a right click on the element and select inspect and in the console right click and copy XPATH.\r\n\r\n\r\n\r\nThere are better ways for writing theXPATH, you can search the internet to find out how to writeXPATH efficiently. Here for this article we would use above method as a default way to find XPATH of the element, But if you know how to write XPATH any other way then feel free to use it.\r\n\r\nInstalling Selenium\r\n\r\nUsing pip install Selenium, it will install the latest version of the selenium on your system\r\n\r\npip install -U selenium\r\n\r\nif you are using chrome as your default browser then chromedriver is required to run selenium on chrome, which is a server for implementing webdrivers wire protocol for chromium, because by default selenium only supports firefox browser but if you have to use any other browser of your choice then a supporting driver also needs to be downloaded and saved on the system. You can download the latest chromedriver from google website here\r\n\r\nSo now you have all the setups and chromedriver to get started.\r\n\r\nImport Webdriver\r\n\r\nFirst, Let\u2019s import webdriver from selenium package and then instantiate the driver for chrome browser by providing the path where chromedriver file is saved\r\n\r\nfrom selenium import webdriver\r\nimport time\r\nimport collections\r\nChromedriver path\r\n\r\nchromedriver = \"/Users/vbabu/WebScrap/src/com/proj/drivers/chromedriver\"\r\nInstantiate the driver object for Chrome\r\n\r\ndriver = webdriver.Chrome(chromedriver)\r\nURL of the Website\r\n\r\nurl = 'https://en.wikipedia.org/wiki/List_of_countries_by_carbon_dioxide_emissions'\r\nLearn how data is stored in HTML Tables\r\n\r\nNow if you look at this wikipage it has a table with 4 columns. Let\u2019s check the html data distribution for this table from where we need to extract the data.\r\nThere is an HTML table structure and there are multiple rows and within each rows there are 4 columns, first column is Country, Second is CO2 emission, Third is Percent CO2 emission and Fourth is Emission per capita.\r\n\r\nLet\u2019s write the xpath for these column elements first. So right click on the first row and get the xpath from the console as shown above.\r\n\r\nCountry: //*[@id=\"mw-content-text\"]/div/table/tbody/tr/td/a\r\nCO2 Emission: //*[@id=\"mw-content-text\"]/div/table/tbody/tr/td[2]\r\nPercent CO2: //*[@id=\"mw-content-text\"]/div/table/tbody/tr/td[3]\r\nEmission per Capita : //*[@id=\"mw-content-text\"]/div/table/tbody/tr/td[4]\r\nFind values\r\n\r\nThe values of each column can be extracted by using find_elements_by_xpath function which returns the list web elements and each of the web elements inside the list is equivalent to the column values in each row. And finally we need to extract the text inside each of these web elements using text function as shown in the final code block.\r\n\r\nExtract the individual column values and store in a list as shown here:\r\n\r\nList of values for country column\r\n\r\ncountrylst = driver.find_elements_by_xpath('//*[@id=\"mw-content-text\"]/div/table/tbody/tr/td/a')\r\nList of values for CO2 emission column\r\n\r\nco2emitelst = driver.find_elements_by_xpath('//*[@id=\"mw-content-text\"]/div/table/tbody/tr/td[2]')\r\nList of values for Percent CO2 emission columns \r\n\r\npercentco2lst = driver.find_elements_by_xpath('//*[@id=\"mw-content-text\"]/div/table/tbody/tr/td[3]')\r\nList of values Per capita CO2 emission columns\r\n\r\npercapitalst = driver.find_elements_by_xpath('//*[@id=\"mw-content-text\"]/div/table/tbody/tr/td[4]')\r\nData in Structured Format\r\n\r\nNow it\u2019s time to get the values from these list and store them in a country dictionary, as shown here:\r\n\r\n{    \r\n 'South Korea': \r\n                   { 'CO2': '642,024', \r\n                   'PerCapita-CO2': '23.4', \r\n                    'Percent-CO2': '1.78%' },    \r\n 'Malaysia': \r\n                   { 'CO2': '279,174', \r\n                    'PerCapita-CO2': '11.9',\r\n                    'Percent-CO2': '0.77%' }\r\n}\r\n\r\nfor cntryelem,co2emitelem,percntelem,percapitaelem in zip(countrylst,co2emitelst,percentco2lst,percapitalst):\r\n          country[cntryelem.text]={}\r\n          country[cntryelem.text]['CO2'] = co2emitelem.text\r\n          country[cntryelem.text]['Percent-CO2'] = percntelem.text\r\n          country[cntryelem.text]['PerCapita-CO2'] = percapitaelem.text\r\n\r\n \r\nQuit Driver\r\n\r\nFinally you need to close the driver and terminates all the webdriver sessions\r\n\r\ndriver.quit()\r\nFinal Code\r\n\r\n\r\nview rawselwebscraping.ipynb hosted with \u2764 by GitHub",
+    "date": "2017-08-03T13:40:42Z",
+    "title": "Web Scraping Made Easy",
+    "slug": "Web-Scraping-Made-Easy",
+    "published": false,
+    "keywords": "Scraping, Crawling, Python",
+    "tags": [
+      "Python",
+      "Scraping"
+    ]
+  }
+},
+{
+  "model": "hello.blog",
+  "pk": 7,
+  "fields": {
+    "content": "Files named\u00a0__init__.py\u00a0are used to mark directories on disk as Python package directories. If you have the files\r\nmydir/spam/__init__.py\r\nmydir/spam/module.py\r\nand\u00a0mydir\u00a0is on your path, you can import the code in\u00a0module.py\u00a0as\r\nimport spam.module\r\nor\r\nfrom spam import module\r\nIf you remove the\u00a0__init__.py\u00a0file, Python will no longer look for submodules inside that directory, so attempts to import the module will fail.\r\nThe\u00a0__init__.py\u00a0file is usually empty, but can be used to export selected portions of the package under more convenient name, hold convenience functions, etc. Given the example above, the contents of the init module can be accessed as\r\nimport spam\r\n\r\n\t\r\n\r\n\t\r\n\r\nvote\r\nIn addition to labeling a directory as a Python package and defining\u00a0__all__,\u00a0__init__.py\u00a0allows you to define any variable at the package level.\u00a0Doing so is often convenient if a package defines something that will be imported frequently, in an API-like fashion. This pattern promotes adherence to the Pythonic \"flat is better than nested\" philosophy.\r\nAn example\r\nHere is an example from one of my projects, in which I frequently import a\u00a0sessionmaker\u00a0called\u00a0Session\u00a0to interact with my database. I wrote a \"database\" package with a few modules:\r\ndatabase/\r\n    __init__.py\r\n    schema.py\r\n    insertions.py\r\n    queries.py\r\nMy\u00a0__init__.py\u00a0contains the following code:\r\nimport os\r\nfrom sqlalchemy.orm import sessionmaker\r\nfrom sqlalchemy import create_engine\r\nengine = create_engine(os.environ['DATABASE_URL'])\r\nSession = sessionmaker(bind=engine)\r\nSince I define\u00a0Session\u00a0here, I can start a new session using the syntax below. This code would be the same executed from inside or outside of the \"database\" package directory.\r\nfrom database import Session\r\nsession = Session()\r\nOf course, this is a small convenience -- the alternative would be to define\u00a0Session\u00a0in a new file like \"create_session.py\" in my database package, and start new sessions using:\r\nfrom database.create_session import Session\r\nsession = Session()\r\n\r\nThere are 2 main reasons for\u00a0__init__.py\r\n\t1. For convenience: the other users will not need to know your functions' exact location in your package hierarchy.\r\nyour_package/\r\n  __init__.py\r\n  file1.py/\r\n  file2.py/\r\n    ...\r\n  fileN.py\r\n\r\n# in __init__.py\r\nfrom file1 import *\r\nfrom file2 import *\r\n...\r\nfrom fileN import *\r\n\r\n# in file1.py\r\ndef add():\r\n    pass\r\nthen others can call add() by\r\nfrom your_package import add\r\nwithout knowing file1, like\r\nfrom your_package.file1 import add\r\n\t2. If you want something to be initialized; for example, logging (which should be put in the top level):\r\nimport logging.config\r\nlogging.config.dictConfig(Your_logging_config)",
+    "date": "2017-08-03T19:14:02Z",
+    "title": "Use of _init_.py in Django",
+    "slug": "Use-of_python-file-_init_-in-django",
+    "published": false,
+    "keywords": "Django, init.py, Solution",
+    "tags": [
+      "Solution",
+      "Django"
+    ]
+  }
+},
+{
+  "model": "hello.tagsforblog",
+  "pk": "App",
+  "fields": {
+    "tagslug": "App"
+  }
+},
+{
+  "model": "hello.tagsforblog",
+  "pk": "Django",
+  "fields": {
+    "tagslug": "Django"
+  }
+},
+{
+  "model": "hello.tagsforblog",
+  "pk": "News",
+  "fields": {
+    "tagslug": "News"
+  }
+},
+{
+  "model": "hello.tagsforblog",
+  "pk": "Problem",
+  "fields": {
+    "tagslug": "Problem"
+  }
+},
+{
+  "model": "hello.tagsforblog",
+  "pk": "Python",
+  "fields": {
+    "tagslug": "Python"
+  }
+},
+{
+  "model": "hello.tagsforblog",
+  "pk": "Scraping",
+  "fields": {
+    "tagslug": "Scraping"
+  }
+},
+{
+  "model": "hello.tagsforblog",
+  "pk": "Solution",
+  "fields": {
+    "tagslug": "Solution"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can add achievement",
+    "content_type": 7,
+    "codename": "add_achievement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can change achievement",
+    "content_type": 7,
+    "codename": "change_achievement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can delete achievement",
+    "content_type": 7,
+    "codename": "delete_achievement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can add blog",
+    "content_type": 8,
+    "codename": "add_blog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can change blog",
+    "content_type": 8,
+    "codename": "change_blog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can delete blog",
+    "content_type": 8,
+    "codename": "delete_blog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add comment",
+    "content_type": 9,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change comment",
+    "content_type": 9,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete comment",
+    "content_type": 9,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can add company",
+    "content_type": 10,
+    "codename": "add_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can change company",
+    "content_type": 10,
+    "codename": "change_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can delete company",
+    "content_type": 10,
+    "codename": "delete_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can add education",
+    "content_type": 11,
+    "codename": "add_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can change education",
+    "content_type": 11,
+    "codename": "change_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can delete education",
+    "content_type": 11,
+    "codename": "delete_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can add person",
+    "content_type": 12,
+    "codename": "add_person"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can change person",
+    "content_type": 12,
+    "codename": "change_person"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can delete person",
+    "content_type": 12,
+    "codename": "delete_person"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add personal project",
+    "content_type": 13,
+    "codename": "add_personalproject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change personal project",
+    "content_type": 13,
+    "codename": "change_personalproject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete personal project",
+    "content_type": 13,
+    "codename": "delete_personalproject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can add skills",
+    "content_type": 14,
+    "codename": "add_skills"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can change skills",
+    "content_type": 14,
+    "codename": "change_skills"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can delete skills",
+    "content_type": 14,
+    "codename": "delete_skills"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can add strength",
+    "content_type": 15,
+    "codename": "add_strength"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can change strength",
+    "content_type": 15,
+    "codename": "change_strength"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can delete strength",
+    "content_type": 15,
+    "codename": "delete_strength"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can add subscriber",
+    "content_type": 16,
+    "codename": "add_subscriber"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can change subscriber",
+    "content_type": 16,
+    "codename": "change_subscriber"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can delete subscriber",
+    "content_type": 16,
+    "codename": "delete_subscriber"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add Detail Tag",
+    "content_type": 17,
+    "codename": "add_tagsforblog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change Detail Tag",
+    "content_type": 17,
+    "codename": "change_tagsforblog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete Detail Tag",
+    "content_type": 17,
+    "codename": "delete_tagsforblog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can add technical skill",
+    "content_type": 18,
+    "codename": "add_technicalskill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can change technical skill",
+    "content_type": 18,
+    "codename": "change_technicalskill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can delete technical skill",
+    "content_type": 18,
+    "codename": "delete_technicalskill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can add company project",
+    "content_type": 19,
+    "codename": "add_companyproject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can change company project",
+    "content_type": 19,
+    "codename": "change_companyproject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can delete company project",
+    "content_type": 19,
+    "codename": "delete_companyproject"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$36000$3OkLd0PDFUOH$OfvwUKuIm2ABO1pbLGUj/TLlT8LQ1AMIXWiTg+9Gez8=",
+    "last_login": "2017-07-31T12:05:39.875Z",
+    "is_superuser": true,
+    "username": "joun",
+    "first_name": "",
+    "last_name": "",
+    "email": "kazmifaraz153@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2017-07-31T12:05:12.955Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "hello.person",
+  "pk": 1,
+  "fields": {
+    "userName": 1,
+    "fullName": "Mohd Joun Kazmi",
+    "userbio": "coder, reader,tech guy, open source enthusiast, devoted tv series expert,amateur internet ninja",
+    "locality": "Vasant Kunj",
+    "userLocation": "Delhi, India",
+    "title": "Full Stack Software Developer",
+    "linkedinUrl": "https://www.linkedin.com/in/mohd-joun-kazmi-4224b9111/",
+    "githubUrl": "https://github.com/frzkazmi",
+    "emailAddress": "kazmifaraz153@gmail.com",
+    "personalDescription": "I am a Full Stack developer from New Delhi, India who loves learning new and better ways to create seamless user experiences with clean, efficient, and scalable code.I mainly write in JavaScript,Java, HTML/CSS and Python, I also can speak to databases and make servers do stuff. I have experience developing and designing software for the web, from simple landing pages to progressive web applications.. I like working on scalability, performance, design, and great user experiences.",
+    "careerObjective": "To work in a challenging, fast learning environment with a dedicated team using the best of my technical and analytical skills.",
+    "fbUrl": "http://facebook.com/frzkazmi",
+    "mywebsite": "https://joun-testapp.herokuapp.com/admin",
+    "skypeId": "mohd_joun",
+    "mobileNumber": "+917210977769"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2017-07-31T12:07:56.984Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Mohd Joun Kazmi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2017-07-31T12:09:45.506Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Python",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2017-07-31T12:09:59.233Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "Django",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2017-07-31T12:10:10.864Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "Flask",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2017-07-31T12:10:23.516Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "NodeJS",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2017-07-31T12:10:41.935Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "5",
+    "object_repr": "Angular",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2017-07-31T12:10:53.049Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "6",
+    "object_repr": "ReactJS",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2017-07-31T12:11:46.764Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "B.tech Computer Science",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2017-07-31T12:21:31.762Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "TechnicalSkill object",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2017-07-31T12:32:08.566Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Nvizion Solutions",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2017-07-31T12:42:06.130Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Id similique optio cumque esse.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2017-07-31T12:42:13.385Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Ea cum totam cupiditate harum debitis cum aliquam.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2017-07-31T12:42:22.892Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Blanditiis placeat quibusdam id consequuntur blanditiis quasi maiores.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2017-07-31T13:34:19.036Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Id similique optio cumque esse.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2017-08-01T11:50:24.226Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "App",
+    "object_repr": "App",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"tagname\", \"tagslug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2017-08-01T11:50:40.662Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Django",
+    "object_repr": "Django",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"tagname\", \"tagslug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2017-08-01T11:51:03.815Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "problem",
+    "object_repr": "problem",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"tagname\", \"tagslug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2017-08-01T11:51:25.592Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Solution",
+    "object_repr": "Solution",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"tagname\", \"tagslug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2017-08-01T11:51:59.163Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "News",
+    "object_repr": "News",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"tagname\", \"tagslug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2017-08-01T11:52:08.543Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Problem",
+    "object_repr": "Problem",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"tagname\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.059Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Ut optio incidunt esse enim mollitia quasi.",
+    "object_repr": "Ut optio incidunt esse enim mollitia quasi.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.089Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Sequi blanditiis quaerat qui et maiores officia.",
+    "object_repr": "Sequi blanditiis quaerat qui et maiores officia.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.090Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Quibusdam recusandae suscipit culpa.",
+    "object_repr": "Quibusdam recusandae suscipit culpa.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.092Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "problem",
+    "object_repr": "problem",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.093Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Ipsam aliquam explicabo ducimus rem.",
+    "object_repr": "Ipsam aliquam explicabo ducimus rem.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.095Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Earum quasi officiis exercitationem non.",
+    "object_repr": "Earum quasi officiis exercitationem non.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.096Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Dolore atque expedita hic aut magni.",
+    "object_repr": "Dolore atque expedita hic aut magni.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.098Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Cupiditate doloribus magnam deleniti dicta porro.",
+    "object_repr": "Cupiditate doloribus magnam deleniti dicta porro.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2017-08-01T11:52:34.099Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Commodi provident alias vitae cupiditate vero.",
+    "object_repr": "Commodi provident alias vitae cupiditate vero.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2017-08-01T11:52:48.628Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Id similique optio cumque esse.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2017-08-01T11:52:55.797Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Ea cum totam cupiditate harum debitis cum aliquam.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2017-08-01T11:53:04.197Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Blanditiis placeat quibusdam id consequuntur blanditiis quasi maiores.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2017-08-01T13:06:08.526Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Id similique optio cumque esse.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2017-08-03T09:56:47.481Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Deploying Django Project at Pythonanywhere",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"content\", \"title\", \"slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2017-08-03T09:58:49.025Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Top 10 Python libraries of 2016",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"title\", \"slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2017-08-03T09:59:30.028Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Top 10 Python libraries of 2016",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"content\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2017-08-03T10:02:36.498Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Fixed CommandError: Unable to find a locale path to store translations for file __init__.py",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"content\", \"date\", \"title\", \"slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2017-08-03T10:07:42.921Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Django Contact Form Widget",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2017-08-03T10:07:54.752Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Django Contact Form Widget",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2017-08-03T10:08:49.702Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Python",
+    "object_repr": "Python",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2017-08-03T10:09:08.475Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Top 10 Python libraries of 2016",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2017-08-03T13:26:09.516Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Top 10 Python libraries of 2016",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2017-08-03T13:40:05.449Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "Scraping",
+    "object_repr": "Scraping",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2017-08-03T13:41:36.427Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Web Scraping Made Easy",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2017-08-03T13:46:18.435Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Use of _init_.py in Django",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2017-08-03T13:46:47.425Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Use of _init_.py in Django",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"content\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2017-08-07T11:25:53.445Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Use of _init_.py in Django",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"keywords\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2017-08-07T11:26:47.691Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Django Contact Form Widget",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"keywords\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2017-08-07T11:27:08.481Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Web Scraping Made Easy",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"keywords\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2017-08-07T11:27:56.011Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Fixed CommandError: Unable to find a locale path to store translations for file __init__.py",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"keywords\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2017-08-07T11:28:27.872Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Deploying Django Project at Pythonanywhere",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"keywords\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2017-08-07T11:29:03.277Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Top 10 Python libraries of 2016",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"keywords\"]}}]"
+  }
+}
+]
