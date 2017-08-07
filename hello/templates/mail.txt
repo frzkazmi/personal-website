@@ -1,0 +1,9 @@
+Message from 
+Contact Name:
+{{ senderName }}
+
+Email:
+{{ senderEmail }}
+
+Message:
+{{ message }}

@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% load staticfiles %} {% block content %}
+
+	
+	<!-- +++++ Post +++++ -->
+	<div id="white">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<!-- <p><img src="{% static 'img\user.png' %}" width="50px" height="50px"> <ba>Mohd Joun</ba></p>
+					<p><bd>January 3, 2014</bd></p>
+					<h4>An Image Post</h4>
+					<p><img class="img-responsive" src="{% static 'img\blog01.jpg' %}" alt=""></p>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+					<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<br>
+					<p><bt>TAGS: <a href="#">Wordpress</a> - <a href="#">Web Design</a></bt></p> -->
+					<p><img src="{% static 'img\user.png' %}" width="50px" height="50px"> <ba>Mohd Joun</ba></p>
+					<p class="meta">
+        
+        Posted under:
+        {% for tag in blog.tags.all %}
+        	
+      
+          <a href="{% url 'tag_posts_page' tag %}" data-bjax="">#{{tag}}</a>{% if not forloop.last %}, {% endif %}
+        {% empty %}No tags available for this post
+          {% endfor %}
+          
+        
+      </p>
+					<p><bd>{{blog.date}}</bd></p>
+					<h3>{{blog.title}}</h3>
+					<p>{{blog.content}}</p>
+
+					<hr>
+					<p><a href="../"># Back</a></p>
+				</div>
+          
+			</div><!-- /row -->
+			<div class="share panel-body" id="non-printable" style="
+    text-align: center;" >
+      <span>Share on: </span> 
+      <a class="btn btn-sm btn-primary cst__radius" href="https://www.facebook.com/sharer/sharer.php?u=https://joun-testapp.herokuapp.com{% url 'blog_detail_page' slug=blog.slug %}" target="_blank">Facebook</a>
+      <a class="btn btn-sm btn-danger cst__radius" href="https://plus.google.com/share?url=https://joun-testapp.herokuapp.com{% url 'blog_detail_page' slug=blog.slug %}" target="_blank">Google+</a>
+      <a class="btn btn-sm btn-info cst__radius" href="https://twitter.com/share" target="_blank">Twitter</a>
+      <a class="btn btn-sm btn-success cst__radius" href="javascript:window.print()">Print Page</a>
+    </div>
+
+    <style type="text/css" media="print">
+     @media print {
+       #non-printable, .ip-client { display: none; }
+       #printable { display: block; width: 100%;height: 100%;}
+       a[href]::after {content: "";} /*content: " (" attr(href) ")"*/
+     }
+    </style>
+			<div class="panel panel-default related" id="non-printable" style="
+    text-align: center;" >
+      <div class="panel-heading">
+        <h3 class="panel-title">Related Posts</h3>
+      </div>
+        <ul class="list-group">
+          {% for post in relatedPosts %}
+            <li class="list-group-item"><a href="{% url 'blog_detail_page' slug=post.slug %}">{{ post.title }}</a> - <i>{{ post.created }}</i></li>
+            {% empty %}
+              <p style="margin: 1em;">No related posts!</p>
+          {% endfor %}
+        </ul>
+    </div>
+	    </div> <!-- /container -->
+	</div><!-- /white -->
+
+	{% endblock %}
+	
+	
+	
+	
+	
+	
+
+   

@@ -1,36 +1,50 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <!-- +++++ Contact Section +++++ -->
-  
-  <div class="container pt">
+<div class="container pt">
     <div class="row mt">
-      <div class="col-lg-6 col-lg-offset-3 centered">
-        <h3>CONTACT ME</h3>
-        <hr>
-        <!-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p> -->
-      </div>
+        <div class="col-lg-6 col-lg-offset-3 centered">
+            <h3>CONTACT ME</h3>
+            <hr>
+            <!-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p> -->
+        </div>
     </div>
     <div class="container clearfix">
-                <style><!--
-.caddress, .cfax{
-display: none;
-}
---></style>
-<h3>Email</h3>
-<p>You can reach me out to at my mail <a href="mailto:{{person.emailAddress}}">:{{person.emailAddress}}</a></p>
-<h3>Voice</h3>
-<div class="skype"><strong>Skype id:</strong> {{person.skypeId}}</div>
-<div class="cphone"><strong>Phone:</strong> {{person.mobileNumber}}</div>
-<h3>Other</h3>
+        <style>
+        <!-- .caddress,
+        .cfax {
+            display: none;
+        }
 
-                            </div>
-    <div class="row mt">  
-      <div class="col-lg-8 col-lg-offset-2">
-        <form role="form"><h3>OR YOU CAN FILL THIS FORM TO CONNECT WITH ME<h3>
+        -->
+        </style>
+        <h3>Email</h3>
+        <p>You can reach me out to at my mail <a href="mailto:{{person.emailAddress}}">:{{person.emailAddress}}</a></p>
+        <h3>Voice</h3>
+        <div class="skype" style="font-size: 17px !important;"><strong>Skype id:  </strong> {{person.skypeId}}</div>
+        <div class="cphone" style="margin-top: 17px !important;"><strong>Phone:  </strong> {{person.mobileNumber}}</div>
+        <h3>Other</h3>
+        <a class="btn btn-social-icon btn-facebook" href="{{person.fbUrl}}"><span class="fa fa-facebook"></span></a>
+        <a class="btn btn-social-icon btn-linkedin" href="{{person.linkedinUrl}}"><span class="fa fa-linkedin"></span></a>
+    </div>
+    <div class="row mt">
+        <div class="col-lg-8 col-lg-offset-2">
+            {% if form %}
+            <!-- Form Errors -->
+            {% if form.errors %}
+            <ul class="errors">
+                {% for error in form.errors %}
+                <li style="display: block;width: 100%;height: 34px;padding: 6px 12px; font-size: 14px;line-height: 1.428571429;
+    color: #555555;vertical-align: middle;background-color: #ffffff;background-image: none;border: 1px solid #cccccc;
+    border-radius: 4px;">{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% else %} {% endif %}
+            <!-- Display Form -->
+            <form role="form" method="post" enctype="multipart/form-data">
+                <h3>OR YOU CAN FILL THIS FORM TO CONNECT WITH ME<h3>
         <br>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <input type="name" class="form-control" id="NameInputEmail1" placeholder="Your Name">
             <br>
           </div>
@@ -43,11 +57,48 @@ display: none;
             <br>
           </div>
           <textarea class="form-control" rows="6" placeholder="Enter your text here"></textarea>
-            <br>
-          <button type="submit" class="btn btn-success">SUBMIT</button>
-        </form>         
+            <br> -->
+            {% csrf_token %}
+            
+               <!-- {{form.as_ul}}
+                            -->
+           
+          {% for field in form %}
+         
+         <div class="form-group">
+         
+           <input type="text" class="form-control" name="{{field.name}}" required id="id_{{field.name}}" placeholder="{{field.label}}">
+           <br>
+           </div>
+           {% endfor %} 
+           <script src='https://www.google.com/recaptcha/api.js'></script>
+           <div class="g-recaptcha" data-sitekey="6Ld-OioUAAAAAPb3bIxdzM6rqVdDo7d34GRbQkVM"></div>
+          <button type="submit" id="formsubmit" class="btn btn-success" >SUBMIT</button>
+          
+        </form>
+
+ {% if validFlag == "True" %}
+                                          <div class="alert alert-success" id="alert_template" style="display: block;margin-top:20px">
+                                              <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                              <strong>Success!</strong> Your message was sent successfully. Thanks for getting in touch! I'll respond to you as soon as possible.
+                                          </div>
+                                          {% endif %}           
+
+        <!-- <div class="wpcf7-response-output wpcf7-display-none wpcf7-mail-sent-ok" style="display: inline-block;margin-top:20px" role="alert">Your message was sent successfully. Thanks for getting in touch! We'll respond to you as soon as possible.</div> -->
+        {% endif %}         
       </div>
     </div><!-- /row -->
   </div><!-- /container -->
   
+ 
+
+
+<script >
+  /*$('#formsubmit').on('click', function (e) {
+    console.log('inside popup script');
+    $('#alert_template').fadeIn('slow');
+  });*/
+
+        
+</script>
  {% endblock %}
