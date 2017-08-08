@@ -1,0 +1,10 @@
+Title:	The uses of mathematical models for policymaking in resource management
+
+Description:	This undergraduate research opportunity is part of our research project funded by the National Science Foundation. The research project focuses on the uses of mathematical models to study questions concerning the boreal ecosystem, with the goal of addressing issues of interest to both ecology and resource management. The research team includes both mathematicians and ecologists, which will provide an valuable training opportunity for interdisciplinary undergraduate research.
+
+Research Areas:	Mathematics, Biology, Ecology
+
+Requirements
+Qualifications:	In addition to the qualifications required by the DURI program, the candidate should have strong computational skills (e.g., capable of understanding the computation software and being able to write basic computer codes for simulations). The candidate should also have taken basic mathematics courses (calculus, linear algebra, and differential equations).
+
+Expected Student Contributions: 	The undergraduate research will focus on the analysis of the mathematical models via computer simulations using a software developed by a member on the research team. The analysis will help gain insights into the underlying biological processes which govern the observed patterns of interacting populations. The results will then be useful for identifying optimal management strategies for the biological system under investigation.
