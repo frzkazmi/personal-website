@@ -35,7 +35,7 @@ SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-GOOGLE_RECAPTCHA_SECRET_KEY = _require_env('GOOGLE_RECAPTCHA_SECRET_KEY')
+GOOGLE_RECAPTCHA_SECRET_KEY = _require_env('GOOGLE_RECAPTCHA_SECRET_KEY)
 
 # Application definition
 
@@ -144,7 +144,7 @@ USE_TZ = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD')
 #EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER')
 #EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
