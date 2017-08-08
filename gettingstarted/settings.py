@@ -36,7 +36,7 @@ SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 DEBUG = True
 
 GOOGLE_RECAPTCHA_SECRET_KEY = _require_env('GOOGLE_RECAPTCHA_SECRET_KEY')
-
+#GOOGLE_RECAPTCHA_SECRET_KEY = ''
 # Application definition
 
 INSTALLED_APPS = (
@@ -46,10 +46,16 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello',
+     'django.contrib.sites',
+    'disqus',
     'livereload',
+    'hello',
    
 )
+
+DISQUS_API_KEY = 'Gup37XlIusYprUQroVAbCBuC4t7GPXBltCTMt7Dx9w3q2qxfQFW90Pv7esQGm2f5'
+DISQUS_WEBSITE_SHORTNAME = 'jounsite'
+
 
 FAKER_LOCALE = None     # settings.LANGUAGE_CODE is loaded
 FAKER_PROVIDERS = None  # faker.DEFAULT_PROVIDERS is loaded (all)
@@ -145,8 +151,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD')
-#EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER')
-#EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD')
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

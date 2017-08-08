@@ -45,6 +45,8 @@
       <a class="btn btn-sm btn-info cst__radius" href="https://twitter.com/share" target="_blank">Twitter</a>
       <a class="btn btn-sm btn-success cst__radius" href="javascript:window.print()">Print Page</a>
     </div>
+    
+   
 
     <style type="text/css" media="print">
      @media print {
@@ -65,6 +67,10 @@
               <p style="margin: 1em;">No related posts!</p>
           {% endfor %}
         </ul>
+         {% load disqus_tags %}
+    {% set_disqus_identifier "blogpost_" object.title %}
+    {% set_disqus_title object.title %}
+    {% disqus_show_comments %}
     </div>
 	    </div> <!-- /container -->
 	</div><!-- /white -->
