@@ -169,7 +169,7 @@ def blog(request):
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
        
-    return render(request,'blog.html', {'blogs':blogs,'populartags':mapping[:5],'recentposts':blogs_list[:5]})
+    return render(request,'blog.html', {'blogs':blogs,'populartags':mapping[:5],'recentposts':blogs_list[:5],'person': person})
 
 def blogPage(request,slug):
     blog = get_object_or_404(Blog, slug=slug)
@@ -179,7 +179,7 @@ def blogPage(request,slug):
     
    
     
-    return render(request,'blogPage.html',{'blog':blog,'relatedPosts':related_posts})
+    return render(request,'blogPage.html',{'blog':blog,'relatedPosts':related_posts,'person': person})
 
 
 def tagPostsPage(request,tag):
@@ -210,7 +210,7 @@ def tagPostsPage(request,tag):
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
     
-    return render(request,'blog_posts_tag.html',{'blogs':blogs,'tag':tag_heading,'blogs_count':filtered_blogs_count,'populartags':mapping[:5],'recentposts':blogs_list[:5]})
+    return render(request,'blog_posts_tag.html',{'person': person,'blogs':blogs,'tag':tag_heading,'blogs_count':filtered_blogs_count,'populartags':mapping[:5],'recentposts':blogs_list[:5]})
 
 
 def search(request):
@@ -251,9 +251,9 @@ def search(request):
         # eg: posts[:50]
         return render(
             request, 'blogSearchPage.html',
-            {'blogs': blogs,'query':query,'count':filtered_blogs_count,'populartags':mapping[:5],'recentposts':blogs_list[:5]}
+            {'person': person,'blogs': blogs,'query':query,'count':filtered_blogs_count,'populartags':mapping[:5],'recentposts':blogs_list[:5]}
         )
         
     return render(
-        request, 'blogSearchPage.html',{'populartags':mapping[:5],'recentposts':blogs_list[:5]}
+        request, 'blogSearchPage.html',{'person': person,'populartags':mapping[:5],'recentposts':blogs_list[:5]}
     )

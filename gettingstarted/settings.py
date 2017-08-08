@@ -35,7 +35,7 @@ SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-GOOGLE_RECAPTCHA_SECRET_KEY = "6Ld-OioUAAAAAHsYYs1Hz65HcOu9YlcqtK43nCCI"
+GOOGLE_RECAPTCHA_SECRET_KEY = _require_env('GOOGLE_RECAPTCHA_SECRET_KEY')
 
 # Application definition
 
