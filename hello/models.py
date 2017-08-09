@@ -5,6 +5,7 @@ import datetime
 
 from django.utils import timezone
 from uuid import uuid4
+from ckeditor.fields import RichTextField
 # from datetime import date
 from django.utils.translation import gettext as _
 #from dbarray import IntegerArrayField
@@ -70,26 +71,27 @@ class Company(models.Model):
         return self.companyName
 
 
-class PersonalProject(models.Model):
+class PersonalProjects(models.Model):
 
     user = models.ForeignKey('Person')
     projectName = models.CharField(max_length=200,default='')
     TechnologiesUsed = models.TextField(default='')
     ProjectDescription = models.TextField(default='')
-    projectLink = models.CharField(max_length=200,default='')
+    projectLink = models.CharField(max_length=200,null=True,blank=True)
+    gitHublink = models.CharField(max_length=200,null=True,blank=True)
 
     def __str__(self):
         return self.projectName
 
-class CompanyProject(PersonalProject):
-    #user = models.ForeignKey('Person')
+class CompanyProjects(models.Model):
+    user = models.ForeignKey('Person',default=' ')
     company = models.ForeignKey('Company',default='')
-    # projectName = models.CharField(max_length=200,default='')
-    # TechnologiesUsed = models.TextField(default='')
-    # ProjectDescription = models.TextField(default='')
+    projectName = models.CharField(max_length=200,default='')
+    TechnologiesUsed = models.TextField(default='')
+    Project = models.TextField(default='')
 
     def __str__(self):
-        return self.company        
+        return self.projectName        
 
 
 class Education(models.Model):
@@ -143,7 +145,7 @@ class Strength(models.Model):
         return self.strength
 
 class Blog(models.Model):
-    content = models.TextField()
+    content = RichTextField()
     date = models.DateTimeField(default=datetime.datetime.now)
     title = models.CharField(max_length=180)
     slug = models.SlugField(unique=True)

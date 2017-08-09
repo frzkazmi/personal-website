@@ -47,11 +47,19 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'django.contrib.sites',
+     'ckeditor_uploader',
+     #'django_wysiwyg',
+     'ckeditor',
     'disqus',
     'livereload',
     'hello',
    
 )
+
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_BROWSE_SHOW_DIRS=True
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 
 DISQUS_API_KEY = 'Gup37XlIusYprUQroVAbCBuC4t7GPXBltCTMt7Dx9w3q2qxfQFW90Pv7esQGm2f5'
 DISQUS_WEBSITE_SHORTNAME = 'jounsite'

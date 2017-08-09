@@ -12,13 +12,11 @@ class PostModelAdmin(admin.ModelAdmin):
         model = Blog
 
 
-
-
 admin.site.register(Person)
 admin.site.register(Blog, PostModelAdmin)
-admin.site.register(PersonalProject)
+admin.site.register(PersonalProjects)
 admin.site.register(Company)
-admin.site.register(CompanyProject)
+admin.site.register(CompanyProjects)
 admin.site.register(Education)
 admin.site.register(TechnicalSkill)
 admin.site.register(Skills)

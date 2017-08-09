@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
@@ -6,6 +6,11 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 from django.contrib.sitemaps.views import sitemap
+
+
+
+
+
 
 from .sitemaps import StaticViewSitemap
 from hello import views
@@ -16,6 +21,7 @@ sitemaps = {
 }
 
 urlpatterns = [          url(r'^$', views.index, name="index"),
+                 url(r'^ckeditor/', include('ckeditor_uploader.urls')),
                        url(r'^home/', views.home, name="home"),
                        url(r'^about/', views.about, name="about"),
                         url(r'^admin/', admin.site.urls),
