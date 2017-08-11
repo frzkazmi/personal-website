@@ -79,6 +79,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'livereload.middleware.LiveReloadScript',
     'django.middleware.security.SecurityMiddleware',
+    'gettingstarted.middleware.OnlineNowMiddleware',
 )
 
 ROOT_URLCONF = 'gettingstarted.urls'
