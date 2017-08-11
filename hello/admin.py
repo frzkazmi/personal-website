@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 
 class PostModelAdmin(admin.ModelAdmin):
-    list_display = ["title", "date"]
+    list_display = ["title", "date","date_updated"]
     list_display_links = ["title"]
     #list_editable = ["title"]
     list_filter = ["date", "title"]
