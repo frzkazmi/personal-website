@@ -32,8 +32,9 @@
           {% endfor %}
           
     
-					<p><bd>Created: {{blog.date}}    and     Updated:{{blog.date_updated}}</bd></p>
+					<p><bd>Created: {{blog.date}}    and     Updated:{{blog.date_updated}}</bd>
 		<bd>		Online users:	{{ request.online_now.count }} </bd>
+		</p>
 					<!--  {{ request.online_now }}
 					{{ request.online_now_ids }}-->
 					<h4>{{blog.title}}</h4>
