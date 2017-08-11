@@ -3,74 +3,7 @@
 {% block content %}
 
 	<!-- +++++ Posts Lists +++++ -->
-	<!-- +++++ First Post +++++ -->
-	<!-- <div id="grey">
-	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<p><img src="{% static 'img\user.png' %}" width="50px" height="50px"> <ba>Mohd Joun</ba></p>
-					<p class="meta">
-        By: <a href="/author/summonagus/" style="text-transform:uppercase" data-bjax="">summonagus</a> â—�
-        at July 21, 2017, 6:46 p.m. â—�
-        Posted under:
-        
-          <a href="/tag/app/" data-bjax="">#APP</a>, 
-        
-          <a href="/tag/django/" data-bjax="">#Django</a>, 
-        
-          <a href="/tag/news/" data-bjax="">#News</a>, 
-        
-          <a href="/tag/project/" data-bjax="">#Project</a>
-        
-      </p>
-					<p><bd>January 18, 2014</bd></p>
-					<h4>The Amazing Spiderman</h4>
-					<p><b>Spider-Man</b> is a fictional character, a comic book superhero that appears in comic books published by Marvel Comics. Created by writer-editor Stan Lee and writer-artist Steve Ditko, he first appeared in Amazing Fantasy #15 (cover-dated Aug. 1962). </p>
-					<p>Lee and Ditko conceived the character as an orphan being raised by his Aunt May and Uncle Ben, and as a teenager, having to deal with the normal struggles of adolescence in addition to those of a costumed crimefighter. </p>
-					<p><a href="blog1">Continue Reading...</a></p>
-				</div>
 
-			</div>/row
-	    </div> /container
-	</div>/grey
-	
-	+++++ Second Post +++++
-	<div id="white">
-	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<p><img src="{% static 'img\user.png' %}" width="50px" height="50px"> <ba>Mohd Joun</ba></p>
-					<p><bd>January 3, 2014</bd></p>
-					<h4>An Image Post</h4>
-					<p><img class="img-responsive" src="{% static 'img\blog01.jpg' %}" alt=""></p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					<p><a href="blog2">Continue Reading...</a></p>
-				</div>
-
-			</div>/row
-	    </div> /container
-	</div>/white
-	
-	+++++ Third Post +++++
-	<div id="grey">
-	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<p><img src="{% static 'img\user.png' %}" width="50px" height="50px"> <ba>Mohd Joun</ba></p>
-					<p><bd>January 01, 2014</bd></p>
-					<h4>Believe In Yourself</h4>
-					<p class="bq">"A bird sitting on a tree is never afraid of the branch breaking, because her trust is not in the branch, but in her own wings."</p>
-				</div>
-
-			</div>/row
-	    </div> /container
-	</div> --><!-- /grey -->
-
-<!-- <div class="search">
-      <input id="search-input" type="text" placeholder="Type to search posts..."/>
-      
-        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div> -->
       <form method="get" action="{% url 'blog_search_page' %}" class="navbar-form navbar-right" role="search">
            <div class="form-group">
              
@@ -83,12 +16,12 @@
    
    {% for blog in blogs %}
    	
-	<div id="grey" class="post">
+	<div id="post" class="post">
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<p><img src="{% static 'img\user.png' %}" width="50px" height="50px"> <ba>Mohd Joun</ba></p>
-					<p class="meta">
+					
         
         Posted under:
         {% for tag in blog.tags.all %}
@@ -98,9 +31,8 @@
         {% empty %}No tags available for this post
           {% endfor %}
           
-        
-      </p>
-					<p><bd>{{blog.date}}</bd></p>
+    
+					<p><bd>Created: {{blog.date}}    and     Updated:{{blog.date_updated}}</bd></p>
 					<h4>{{blog.title}}</h4>
 					<p>{{blog.content |safe|striptags|truncatewords:"32"|linebreaks}}</p>
 					<p><a href="{% url 'blog_detail_page' slug=blog.slug %}">Continue Reading...</a></p>
@@ -111,8 +43,10 @@
 			
 	    </div> <!-- /container -->
 	    
-	</div><!-- /grey -->
+	</div><!-- /post -->
+	<br>
    {% endfor %}
+   <br>
    <br>
    
    {% load globaltags %}

@@ -147,6 +147,7 @@ class Strength(models.Model):
 class Blog(models.Model):
     content = RichTextField()
     date = models.DateTimeField(default=datetime.datetime.now)
+    date_updated = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=180)
     slug = models.SlugField(unique=True)
     published = models.BooleanField(default=False)

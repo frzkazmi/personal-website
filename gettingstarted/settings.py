@@ -56,15 +56,16 @@ INSTALLED_APPS = (
    
 )
 
+#Ckeditor configurations
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_BROWSE_SHOW_DIRS=True
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
-
+#Disqus comments api settings
 DISQUS_API_KEY = 'Gup37XlIusYprUQroVAbCBuC4t7GPXBltCTMt7Dx9w3q2qxfQFW90Pv7esQGm2f5'
 DISQUS_WEBSITE_SHORTNAME = 'jounsite'
 
-
+#Faker settings
 FAKER_LOCALE = None     # settings.LANGUAGE_CODE is loaded
 FAKER_PROVIDERS = None  # faker.DEFAULT_PROVIDERS is loaded (all)
 
@@ -153,19 +154,17 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-#Email settings send_mail('test django email', 'Here is the message.','kazmifaraz153@gmail.com',['frzkazmi@gmail.com'],fail_silently=False,)
-
+#Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER') 
+EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD') 
 # EMAIL_HOST_USER = ''
 # EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-#print ('emailID is '+EMAIL_HOST_USER)
-#print ('emailpassword is '+EMAIL_HOST_PASSWORD)
+
 
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -193,7 +192,6 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
 
 
 # Simplified static file serving.
