@@ -1,8 +1,6 @@
 from django.db import models
 from django import forms
-from django.db import models
 import datetime
-
 from django.utils import timezone
 from uuid import uuid4
 from ckeditor.fields import RichTextField
@@ -20,8 +18,7 @@ class ContactForm(forms.Form):
     subject = forms.CharField(max_length=100)
     message = forms.CharField(required=False, widget=forms.Textarea)
       
-    #cc_myself = forms.BooleanField(required=False)
-    
+      
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
         self.fields['senderName'].label = "Your name:"
@@ -29,7 +26,7 @@ class ContactForm(forms.Form):
         self.fields['subject'].label = "Subject"
         self.fields['message'].label = "Enter your message here"
    
-  
+ 
 
 class Person(models.Model):
 
@@ -83,12 +80,12 @@ class PersonalProjects(models.Model):
     def __str__(self):
         return self.projectName
 
-class CompanyProjects(models.Model):
+class OrganisationalProject(models.Model):
     user = models.ForeignKey('Person',default=' ')
     company = models.ForeignKey('Company',default='')
     projectName = models.CharField(max_length=200,default='')
     TechnologiesUsed = models.TextField(default='')
-    Project = models.TextField(default='')
+    ProjectDescription = models.TextField(default='')
 
     def __str__(self):
         return self.projectName        
@@ -144,24 +141,29 @@ class Strength(models.Model):
     def __str__(self):
         return self.strength
 
+class PostQuerySet(models.QuerySet):
+
+    def publish(self):
+        return self.filter(published=True)
+
 class Blog(models.Model):
     content = RichTextField()
     date = models.DateTimeField(default=datetime.datetime.now)
     date_updated = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=180)
     slug = models.SlugField(unique=True)
-    published = models.BooleanField(default=False)
+    published = models.BooleanField(default=True)
     keywords = models.CharField(max_length=200,null=True)
     tags = models.ManyToManyField('TagsforBlog')
+    objects = PostQuerySet.as_manager()
     
     class Meta:
         ordering=['-date']
     
-    # def get_absolute_url(self):
-    #     return reverse('core.views.blog', args=[self.slug])
-        
+     
     def __str__(self):
         return self.title
+
 
     
     

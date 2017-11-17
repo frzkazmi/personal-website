@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.template import Context
 from django.template.loader import get_template, render_to_string
-import os, requests
+import requests
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from gettingstarted import settings
@@ -123,10 +123,6 @@ def about(request):
             
     return render(request, 'about.html', {'person': person,'skills':skills})
 
-# def projects(request):
-#     return render(request, 'projects.html', {'person': person})
-
-
 def error404(request):
     return render(request, '404.html', {'person': person})
 
@@ -138,7 +134,7 @@ def blog(request):
     # seeder.add_entity(TagsforBlog,8)
     # seeder.add_entity(Blog, 6)    
     # insertedPks = seeder.execute()
-    blogs_list = Blog.objects.all()
+    blogs_list = Blog.objects.publish()
     ##print (blogs_list)
 
     paginator = Paginator(blogs_list, 3)
@@ -154,11 +150,7 @@ def blog(request):
         
     
     mapping.sort(key=lambda x: int(x['total']), reverse=True)
-    #print (mapping)
-    #print ('after mapping')
-   
-
-    ##print (page)
+    
 
     try:
 
@@ -177,8 +169,6 @@ def blogPage(request,slug):
     tags_list = blog.tags.all()
     related_posts = (Blog.objects.filter(tags__in=list(tags_list)).exclude(id=blog.id).distinct()[:4])
     
-   
-    
     return render(request,'blogPage.html',{'blog':blog,'relatedPosts':related_posts,'person': person})
 
 
@@ -186,7 +176,7 @@ def tagPostsPage(request,tag):
     #tags_list = get_object_or_404(TagsforBlog)
     ##print (tag)
     filtered_blog_list =  Blog.objects.filter(tags=tag)
-    blogs_list = Blog.objects.all()
+    blogs_list = Blog.objects.publish()
     filtered_blogs_count = Blog.objects.filter(tags=tag).count()
     tag_heading = tag
     paginator = Paginator(filtered_blog_list, 3)
@@ -218,7 +208,7 @@ def search(request):
     
     #print ('requested query is')
     #print (query)
-    blogs_list = Blog.objects.all()
+    blogs_list = Blog.objects.publish()
     mapping = []
     tags_queryset = TagsforBlog.objects.all()
     for tag in tags_queryset:

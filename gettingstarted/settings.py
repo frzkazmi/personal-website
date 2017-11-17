@@ -35,11 +35,12 @@ SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-GOOGLE_RECAPTCHA_SECRET_KEY = _require_env('GOOGLE_RECAPTCHA_SECRET_KEY')
-#GOOGLE_RECAPTCHA_SECRET_KEY = ''
+#GOOGLE_RECAPTCHA_SECRET_KEY = _require_env('GOOGLE_RECAPTCHA_SECRET_KEY')
+GOOGLE_RECAPTCHA_SECRET_KEY = ''
 # Application definition
 
 INSTALLED_APPS = (
+    'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +48,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'django.contrib.sites',
+     'djipsum',
      'ckeditor_uploader',
      #'django_wysiwyg',
      'ckeditor',
@@ -158,10 +160,10 @@ USE_TZ = True
 #Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER') 
-EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD') 
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
+# EMAIL_HOST_USER = _require_env('EMAIL_HOST_USER') 
+# EMAIL_HOST_PASSWORD = _require_env('EMAIL_HOST_PASSWORD') 
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
